@@ -1,0 +1,11 @@
+Descripción general del sistema
+
+Para solucionar los problemas planteados de clientela y gestión, el sistema estará diseñado para permitir 
+la gestión de las ventas, los productos y los clientes de manera más eficaz 
+
+Objetivos del proyecto
+
+El objetivo principal del cliente es aumentar su clientela con la ayuda de una página web, 
+esto lo haremos desarrollando un catálogo online de la tienda para que los clientes puedan consultar o comprar
+cualquier producto en cualquier momento.
+Con todo esto principalmente lo que se quiere es aumentar los beneficios de la tienda

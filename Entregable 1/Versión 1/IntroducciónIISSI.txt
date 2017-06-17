@@ -1,0 +1,9 @@
+----------------Situación actual------------
+
+Omaita Modas es una pequeña tienda situada en la localidad de Alcalá de Guadaira y más exactamente
+en la calle Pepe Luces nº20, que se dedica a la venta de ropa y accesorios a un público maduro y femenino.
+Al ser una pequeña tienda no tiene mucho alcance más allá de su localidad. Actualmente nuestro cliente no pasa por
+la mejor situación en lo que a clientela se refiere, además de que carece de personal, por tanto nuestro proyecto 
+tiene como base ayudar a nuestro cliente en la gestión de la tienda con un sistema informático y la creación de una página online 
+donde sus clientes puedan comprar un producto determinado y en cualquier momento, con esto último se quiere conseguir ampliar la clientela de la tienda.
+
