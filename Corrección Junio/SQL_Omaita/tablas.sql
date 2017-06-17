@@ -60,7 +60,7 @@ CREATE TABLE PROVEEDOR (
 CREATE TABLE PEDIDO(
 ID_Pedido int PRIMARY KEY,
 FechaPedido DATE NOT NULL,
-PrecioTotal NUMBER NOT NULL check (PrecioTotal>0),
+PrecioTotal NUMBER NOT NULL check (PrecioTotal>=0),
 ID_Emplazamiento int,
 CIF VARCHAR2(9),
 FOREIGN KEY (CIF) REFERENCES PROVEEDOR,
