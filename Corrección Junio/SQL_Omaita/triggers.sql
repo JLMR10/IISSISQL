@@ -105,7 +105,7 @@ LOOP
 END modifica_stock_venta;
 
 /
-
+/*
 CREATE OR REPLACE TRIGGER inicializa_preciolinea_alv
   BEFORE INSERT OR UPDATE ON ASOCIACION_VENTA_PRODUCTO
   FOR EACH ROW
@@ -114,7 +114,7 @@ CREATE OR REPLACE TRIGGER inicializa_preciolinea_alv
 END inicializa_preciolinea_alv;
 
 /
-
+*/
 CREATE OR REPLACE TRIGGER inicializa_preciototal_venta
   BEFORE INSERT OR UPDATE ON ASOCIACION_VENTA_PRODUCTO
   for each row
