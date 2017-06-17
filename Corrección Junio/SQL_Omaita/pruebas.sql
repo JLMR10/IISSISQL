@@ -1350,7 +1350,7 @@ EXECUTE PRUEBAS_PEDIDO.eliminar('Pedido eliminar',S_ID_Pedido.currval,true);
 
 --PEDIDO_PRODUCTO
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,21,220.5,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,21,0,true);
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-2,s_id_producto.currval-1,22,46.95,21,0,true);
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-2,22,46.95,21,0,true);
 
@@ -1384,3 +1384,5 @@ EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.inicializar();
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.insertar('A-Producto-Traspaso Insertar', S_ID_Producto.currval-1, S_ID_traspaso.currval-1, 4, true);
 EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,31,29,4,s_ID_producto.currval-1,true);
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Actualizar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
+
+SELECT precioLinea_Aso_Pedido(6,2) FROM DUAL;

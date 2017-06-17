@@ -222,6 +222,7 @@ BEGIN
 END;
 
 /
+/*
 create or replace TRIGGER inicializa_preciolinea_alp
   BEFORE INSERT OR UPDATE ON ASOCIACION_PEDIDO_PRODUCTO
   FOR EACH ROW
@@ -229,7 +230,7 @@ create or replace TRIGGER inicializa_preciolinea_alp
   :NEW.preciolinea := :New.cantidad * :New.preciocompra;
 END inicializa_preciolinea_alp;
 /
-
+*/
 create or replace TRIGGER inicializa_preciototal_albaran
   BEFORE INSERT OR UPDATE ON Albaran
   for each row
