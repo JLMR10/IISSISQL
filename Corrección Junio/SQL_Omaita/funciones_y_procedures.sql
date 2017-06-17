@@ -397,13 +397,13 @@ END precio_Pedido;
 
 /
 
-CREATE OR REPLACE FUNCTION ganancias_mensuales(fechainicio IN factura.fechadeexpedicion%TYPE,fechafin IN factura.fechadeexpedicion%TYPE )
+CREATE OR REPLACE FUNCTION ganancias_mensuales(mes IN number, anyo IN number)
 return number is f_preciototal factura.preciototal%TYPE;
 v_preciototal factura.preciototal%TYPE;
 p_preciototal albaran.preciototal%TYPE;
 begin
-select sum(preciototal) into v_preciototal from factura where fechadeexpedicion between fechainicio and fechafin;
-select sum(preciototal) into p_preciototal from albaran where fechafirma between fechainicio and fechafin;
+select sum(preciototal) into v_preciototal from factura where extract(month from fechadeexpedicion) = mes AND extract(year from fechadeexpedicion) = anyo;
+select sum(preciototal) into p_preciototal from albaran where extract(month from fechaFirma) = mes AND extract(year from fechaFirma) = anyo;
 f_preciototal := v_preciototal - p_preciototal;
 return (f_preciototal);
 end ganancias_mensuales;
