@@ -219,6 +219,8 @@ END PRUEBAS_A_PEDIDO_PRODUCTO;
 CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
     PROCEDURE ganancias
         (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precioLinea_A_Pedido
+        (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN);
 END PRUEBAS_FUNCIONES;
 /
 
@@ -1243,7 +1245,7 @@ END PRUEBAS_A_VENTA_PRODUCTO;
 
 
 CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
-PROCEDURE ganancias
+  PROCEDURE ganancias
     (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     ganancia number;
@@ -1261,6 +1263,26 @@ PROCEDURE ganancias
             PRINTR(nombre_prueba, false, salidaEsperada);
             ROLLBACK;
     END ganancias;
+    
+    PROCEDURE precioLinea_A_Pedido
+    (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+    salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioLinea_Aso_Pedido(ID_PRODUCTO,ID_PEDIDO) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END PRECIOLINEA_A_PEDIDO;
+    
 END PRUEBAS_FUNCIONES;
 /
 
@@ -1424,9 +1446,10 @@ EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_I
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
 --Pruebas de funciones
 EXECUTE PRUEBAS_FUNCIONES.ganancias('Función Ganancias mensuales',6,2017,-1008.87,true);
+EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Pedido('Función precio linea aso-pedido',9,2,220.5,true);
 --Tiene que dar -1008.87
 --select ganancias_mensuales(6,2017) from dual;
 -- Tiene que dar 220.5
---SELECT precioLinea_Aso_Pedido(6,2) FROM DUAL;
+SELECT precioLinea_Aso_Pedido(9,2) FROM DUAL;
 --Tienda que dar 93.9
---SELECT precioLinea_Aso_Venta(6,2) FROM DUAL;
+SELECT precioLinea_Aso_Venta(9,2) FROM DUAL;
