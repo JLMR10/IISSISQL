@@ -33,7 +33,7 @@ CREATE OR REPLACE TRIGGER stock_minimo
   AFTER INSERT OR UPDATE ON stock
   FOR EACH ROW
 BEGIN
-  IF :NEW.cantidad <=0
+  IF :NEW.cantidad <0
   THEN
   raise_application_error(-20601, :NEW.cantidad || 'No se puede realizar esta operacion');
   END IF;

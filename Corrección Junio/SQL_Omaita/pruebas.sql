@@ -1370,8 +1370,10 @@ EXECUTE PRUEBAS_SOLICITUD_TRASPASO.eliminar('Solicitud traspaso Eliminar', S_ID_
 EXECUTE PRUEBAS_SOLICITUD_TRASPASO.insertar('Solicitud traspaso Insertar', sysdate, S_ID_Emplazamiento.currval-1, S_ID_Emplazamiento.currval-2, true);
 --ASOC_PRODUCTO_SOLICITUD
 EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.inicializar();
-EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('A-Producto-Solicitud Insertar', S_ID_Producto.currval-1, S_ID_Solicitud.currval, 3, true);
-EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.eliminar('A-Producto-Solicitud Eliminar', S_ID_Solicitud.currval, S_ID_Producto.currval-1, true);
+EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('A-Producto-Solicitud Insertar', S_ID_Producto.currval-2, S_ID_Solicitud.currval, 3, true);
+EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.eliminar('A-Producto-Solicitud Eliminar', S_ID_Solicitud.currval, S_ID_Producto.currval-2, true);
+COMMIT WORK;
+EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('Prueba de Trigger solicitud_stock_minimo', S_ID_Producto.currval-1, S_ID_Solicitud.currval, 28, false);
 
 --TRASPASO
 EXECUTE PRUEBAS_TRASPASO.inicializar();
