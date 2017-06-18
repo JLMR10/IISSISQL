@@ -1286,25 +1286,31 @@ EXECUTE PRUEBAS_PROVEEDOR.eliminar('Proveedor Eliminar', 'B54120214', true);
 
 --PRODUCTO
 EXECUTE PRUEBAS_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Zapatos cutres','unos zaparos cutres pero calentitos','Calzado',12.5,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Cool shoes','Zapatos de cuero italiano','Calzado',5.95,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Sport Shoes','Zapatos de plastico','Calzado',6.95,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Brown Sandals','Sandalias de playa marrones','Calzado',7.95,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Chupa de cuero','gran imitacion de la chupa de Han Solo','Calzado',500,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Chaleco de lana','por una gran disenadora','Jerseys',46.95,21,true);
-EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Sombrero de paja','el gran sombrero de Mugiwara','Accesorios',20,21,true);
-EXECUTE PRUEBAS_PRODUCTO.actualizar('Producto actualizacion',S_ID_Producto.currval-2,'Unos zapatos cutres pero calentitos, estan rotos',10.5,21,true);
-EXECUTE PRUEBAS_PRODUCTO.eliminar('Producto elminar',S_ID_Producto.currval,true);
+COMMIT WORK;
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto con IVA inválido','Chaleco de lana','por una gran disenadora','Jerseys',46.95,2,false);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto con categoría inválida','Chaleco de lana','por una gran disenadora','Ropa',46.95,0.21,false);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto con precio inválido','Chaleco de lana','por una gran disenadora','Jerseys',-2,0.21,false);
 
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Zapatos cutres','unos zaparos cutres pero calentitos','Calzado',12.5,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Cool shoes','Zapatos de cuero italiano','Calzado',5.95,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Sport Shoes','Zapatos de plastico','Calzado',6.95,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Brown Sandals','Sandalias de playa marrones','Calzado',7.95,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Chupa de cuero','gran imitacion de la chupa de Han Solo','Calzado',500,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Chaleco de lana','por una gran disenadora','Jerseys',46.95,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.insertar('Producto insercion','Sombrero de paja','el gran sombrero de Mugiwara','Accesorios',20,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.actualizar('Producto actualizacion',S_ID_Producto.currval-2,'Unos zapatos cutres pero calentitos, estan rotos',10.5,0.21,true);
+EXECUTE PRUEBAS_PRODUCTO.eliminar('Producto eliminar',S_ID_Producto.currval,true);
 --EMPLAZAMIENTO
 EXECUTE PRUEBAS_EMPLAZAMIENTO.inicializar();
+COMMIT WORK;
+EXECUTE PRUEBAS_EMPLAZAMIENTO.insertar('Emplazamiento con tipo inválido', 'Calle de la piruleta 25', 958632666,'Emplazamiento', false);
+
 EXECUTE PRUEBAS_EMPLAZAMIENTO.insertar('Emplazamiento insercion', 'Calle de la piruleta', 954147741,'TIENDA', true);
 EXECUTE PRUEBAS_EMPLAZAMIENTO.insertar('Emplazamiento insercion', 'Avenida Reina Mercedes', 958632147,'TIENDA', true);
 EXECUTE PRUEBAS_EMPLAZAMIENTO.insertar('Emplazamiento insercion', 'Calle de la piruleta 24', 958632147,'TIENDA', true);
 EXECUTE PRUEBAS_EMPLAZAMIENTO.insertar('Emplazamiento insercion', 'Calle de la piruleta 25', 958632666,'ALMACEN', true);
 EXECUTE PRUEBAS_EMPLAZAMIENTO.actualizar('Emplazamiento actualizacion',S_ID_Emplazamiento.currval-2,'Avenida del pepinillo2', 954147871, true);
 EXECUTE PRUEBAS_EMPLAZAMIENTO.eliminar('Emplazamiento eliminar', S_ID_Emplazamiento.currval, true);
-
 --STOCK
 EXECUTE PRUEBA_STOCK.inicializar();
 EXECUTE PRUEBA_STOCK.insertar('Stock insercion',S_ID_Emplazamiento.currval-2,S_ID_Producto.currval -1,10,true);
@@ -1325,10 +1331,11 @@ EXECUTE pruebas_venta.eliminar('Venta eliminar',S_ID_venta.currval,true);
 
 --ASOCIACION_VENTA_PRODUCTO
 EXECUTE PRUEBAS_A_VENTA_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-2,3,10.5,21,0,true);
-EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-1,2,46.95,21,0,true);
-EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-2,3,10.5,21,0,true);
-EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-1,2,46.95,21,0,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-2,3,10.5,0.21,0,true);
+EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-1,2,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-2,3,10.5,0.21,0,true);
+EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-1,2,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.eliminar('Venta-Producto eliminar',s_id_venta.currval-2,s_id_producto.currval-1,true);
 
 --FACTURA
 EXECUTE PRUEBAS_factura.inicializar();
@@ -1339,7 +1346,6 @@ EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-2,1
 EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-1,125.4,null,true);
 EXECUTE Prueba_stock.stock_correcto('Actualizacion de stock tras venta',s_id_emplazamiento.currval-1,s_id_producto.currval-2,22,3,true);
 EXECUTE Prueba_stock.stock_correcto('Actualizacion de stock tras venta',s_id_emplazamiento.currval-1,s_id_producto.currval-2,21,3,false);
-EXECUTE Prueba_stock.stock_correcto('Actualizacion de stock tras venta',s_id_emplazamiento.currval-1,s_id_producto.currval-1,11,2,true);
 
 --PEDIDO
 EXECUTE PRUEBAS_PEDIDO.inicializar();
@@ -1350,10 +1356,10 @@ EXECUTE PRUEBAS_PEDIDO.eliminar('Pedido eliminar',S_ID_Pedido.currval,true);
 
 --PEDIDO_PRODUCTO
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,21,0,true);
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-2,s_id_producto.currval-1,22,46.95,21,0,true);
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-2,22,46.95,21,0,true);
-
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,0.21,0,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-2,s_id_producto.currval-1,22,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-2,22,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.eliminar('PEDIDO_PRODUCTO eliminar',S_ID_Pedido.currval-1,s_id_producto.currval-2,true);
 --ALBARAN
 
 EXECUTE PRUEBAS_ALBARAN.inicializar();
@@ -1372,6 +1378,7 @@ EXECUTE PRUEBAS_SOLICITUD_TRASPASO.insertar('Solicitud traspaso Insertar', sysda
 EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.inicializar();
 EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('A-Producto-Solicitud Insertar', S_ID_Producto.currval-2, S_ID_Solicitud.currval, 3, true);
 EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.eliminar('A-Producto-Solicitud Eliminar', S_ID_Solicitud.currval, S_ID_Producto.currval-2, true);
+EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('A-Producto-Solicitud Insertar', S_ID_Producto.currval-2, S_ID_Solicitud.currval, 3, true);
 COMMIT WORK;
 EXECUTE PRUEBAS_A_PRODUCTO_SOLICITUD.insertar('Prueba de Trigger solicitud_stock_minimo', S_ID_Producto.currval-1, S_ID_Solicitud.currval, 28, false);
 
@@ -1384,9 +1391,8 @@ EXECUTE PRUEBAS_TRASPASO.eliminar('Traspaso eliminar',S_ID_traspaso.currval,true
 --ASOC_PRODUCTO_TRASPASO
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.inicializar();
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.insertar('A-Producto-Traspaso Insertar', S_ID_Producto.currval-1, S_ID_traspaso.currval-1, 4, true);
-EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,31,29,4,s_ID_producto.currval-1,true);
-EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Actualizar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
-
+EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,33,29,4,s_ID_producto.currval-1,true);
+EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
 --Pruebas de funciones
 -- Tiene que dar 220.5
 --SELECT precioLinea_Aso_Pedido(6,2) FROM DUAL;

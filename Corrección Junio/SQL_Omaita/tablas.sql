@@ -70,7 +70,7 @@ FOREIGN KEY (ID_Emplazamiento) REFERENCES EMPLAZAMIENTO
 CREATE TABLE ALBARAN (
 ID_Albaran int NOT NULL,
 FechaFirma DATE NOT NULL,
-PrecioTotal NUMBER NOT NULL,
+PrecioTotal NUMBER NOT NULL check(PrecioTotal>=0),
 ID_Pedido INT PRIMARY KEY,
 FOREIGN KEY (ID_Pedido) REFERENCES PEDIDO);
 
@@ -79,11 +79,11 @@ CREATE TABLE PRODUCTO(
     ID_Producto int PRIMARY KEY,
     Nombre VARCHAR2(50) NOT NULL,
     Descripcion VARCHAR2(300) NOT NULL,
-    Categoria VARCHAR2(20) CHECK ( Categoria IN ('Abrigo','Chaquetas','Camisas'
+    Categoria VARCHAR2(20) CHECK ( Categoria IN ('Abrigos','Chaquetas','Camisas'
                             ,'Camisetas','Jerseys','Vestidos','Faldas'
                             ,'Pantalones','Calzado','Accesorios','Bisuteria')),
-    PrecioProducto NUMBER NOT NULL check(PrecioProducto>0),
-    IVA NUMBER NOT NULL
+    PrecioProducto NUMBER NOT NULL check(PrecioProducto>=0),
+    IVA NUMBER NOT NULL check(IVA>=0 AND IVA<=1)
 );
 
 CREATE TABLE STOCK(
@@ -101,7 +101,7 @@ CREATE TABLE ASOCIACION_PEDIDO_PRODUCTO(
     PRIMARY KEY (ID_PEDIDO, ID_PRODUCTO),
     Cantidad NUMBER(10) NOT NULL check(Cantidad>=0),
     PrecioCompra NUMBER NOT NULL check(PrecioCompra>=0),
-    IVA NUMBER NOT NULL,
+    IVA NUMBER NOT NULL check(IVA>=0 AND IVA<=1),
     PrecioLinea NUMBER check(PrecioLinea>=0),
     FOREIGN KEY (ID_PEDIDO) REFERENCES PEDIDO,
     FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO
@@ -153,7 +153,7 @@ CREATE TABLE ASOCIACION_VENTA_PRODUCTO(
     FOREIGN KEY (ID_Producto) REFERENCES PRODUCTO,
     Cantidad NUMBER(6) check(Cantidad>=0),
     PrecioVenta NUMBER check(PrecioVenta>=0),
-    IvaVenta NUMBER check(IvaVenta>0),
+    IvaVenta NUMBER check(IvaVenta>=0 AND IvaVenta<=1),
     PrecioLinea Number check (PrecioLinea>=0)
 );
 
