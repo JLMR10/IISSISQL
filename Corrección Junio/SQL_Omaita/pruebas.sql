@@ -221,6 +221,8 @@ CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
         (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN);
     PROCEDURE precioLinea_A_Pedido
         (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precioLinea_A_Venta
+        (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_VENTA NUMBER, esperado number, salidaEsperada BOOLEAN);
 END PRUEBAS_FUNCIONES;
 /
 
@@ -1283,6 +1285,25 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
             ROLLBACK;
     END PRECIOLINEA_A_PEDIDO;
     
+    PROCEDURE precioLinea_A_Venta
+        (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_VENTA NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+        salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioLinea_Aso_VENTA(ID_PRODUCTO,ID_VENTA) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END PRECIOLINEA_A_VENTA;
+    
 END PRUEBAS_FUNCIONES;
 /
 
@@ -1447,9 +1468,13 @@ EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_I
 --Pruebas de funciones
 EXECUTE PRUEBAS_FUNCIONES.ganancias('Función Ganancias mensuales',6,2017,-1008.87,true);
 EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Pedido('Función precio linea aso-pedido',9,2,220.5,true);
+EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Venta('Función precio linea aso-venta',9,2,93.9,true);
 --Tiene que dar -1008.87
 --select ganancias_mensuales(6,2017) from dual;
 -- Tiene que dar 220.5
 SELECT precioLinea_Aso_Pedido(9,2) FROM DUAL;
 --Tienda que dar 93.9
 SELECT precioLinea_Aso_Venta(9,2) FROM DUAL;
+
+-- Select que muestra los productos ofrecidos y disponibles
+--SELECT nombre,id_emplazamiento from producto inner join stock on stock.ID_PRODUCTO = producto.id_producto;
