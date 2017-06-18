@@ -350,7 +350,7 @@ END ELIMINA_SOCIO;
 /
 
 /*FUNCIONES*/
-
+/* Está abajo con menos parámetros
 CREATE OR REPLACE FUNCTION precio_A_Venta_producto
 (f_ID_Venta IN ASOCIACION_VENTA_PRODUCTO.ID_Venta%TYPE,
 f_Cantidad IN ASOCIACION_VENTA_PRODUCTO.Cantidad%TYPE,
@@ -362,7 +362,7 @@ RETURN(f_PrecioLinea);
 END precio_A_Venta_producto;
 
 /
-
+*/
 CREATE OR REPLACE FUNCTION precio_Venta
 (f_ID_Venta IN VENTA.ID_Venta%TYPE)
 RETURN NUMBER is f_PrecioTotal VENTA.PRECIOTOTAL%TYPE;
@@ -373,7 +373,7 @@ RETURN(f_PrecioTotal);
 END precio_Venta;
 
 /
-
+/* Está abajo con menos parámetros
 CREATE OR REPLACE FUNCTION precio_A_Pedido_producto
 (f_ID_Pedido IN ASOCIACION_PEDIDO_PRODUCTO.ID_Pedido%TYPE,
 f_Cantidad IN ASOCIACION_PEDIDO_PRODUCTO.Cantidad%TYPE,
@@ -385,7 +385,7 @@ RETURN(f_PrecioLinea);
 END precio_A_Pedido_producto;
 
 /
-
+*/
 CREATE OR REPLACE FUNCTION precio_Pedido
 (f_ID_Pedido IN PEDIDO.ID_Pedido%TYPE)
 RETURN NUMBER is f_PrecioTotal PEDIDO.PRECIOTOTAL%TYPE;
