@@ -216,6 +216,11 @@ CREATE OR REPLACE PACKAGE PRUEBAS_A_PEDIDO_PRODUCTO AS
 END PRUEBAS_A_PEDIDO_PRODUCTO;
 
 /
+CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
+    PROCEDURE ganancias
+        (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN);
+END PRUEBAS_FUNCIONES;
+/
 
 /* CUERPOS DE PRUEBAS */
 
@@ -1235,6 +1240,30 @@ END PRUEBAS_A_VENTA_PRODUCTO;
 
 /
 
+
+
+CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
+PROCEDURE ganancias
+    (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+    salida BOOLEAN := true;
+    ganancia number;
+    BEGIN
+        SELECT ganancias_mensuales(mes,anyo) INTO ganancia FROM dual;
+
+        IF (ganancia<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END ganancias;
+END PRUEBAS_FUNCIONES;
+/
+
 DROP SEQUENCE S_ID_Producto;
 DROP SEQUENCE S_ID_Traspaso;
 DROP SEQUENCE S_ID_Solicitud;
@@ -1394,6 +1423,9 @@ EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.insertar('A-Producto-Traspaso Insertar', S_I
 EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,33,29,4,s_ID_producto.currval-1,true);
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
 --Pruebas de funciones
+EXECUTE PRUEBAS_FUNCIONES.ganancias('Función Ganancias mensuales',6,2017,-1008.87,true);
+--Tiene que dar -1008.87
+--select ganancias_mensuales(6,2017) from dual;
 -- Tiene que dar 220.5
 --SELECT precioLinea_Aso_Pedido(6,2) FROM DUAL;
 --Tienda que dar 93.9
