@@ -1,0 +1,19 @@
+RG: 01
+Como propietario de la cadena
+Quiero poder gestionar y consultar las ventas de las tiendas
+Para llevar una buena gestión de ellas.
+
+RG: 02
+Como propietario de la cadena
+Quiero poder gestionar y consultar los pedidos a proveedores
+Para llevar una buena gestión de ellos.
+
+RG: 03
+Como propietario de la cadena
+Quiero que haya un sistema de traspasos
+Para poder aprovechar al máximo el stock de las tiendas.
+
+RG: 04
+Como cliente
+Quiero poder ver una lista de los productos ofrecidos y disponibles
+Para realizar mis compras.
