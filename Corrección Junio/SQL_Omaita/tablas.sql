@@ -33,7 +33,6 @@ CREATE TABLE SOCIO (
 
 CREATE TABLE VENTA (
   ID_VENTA int PRIMARY KEY,
-  PrecioTotal Number NOT NULL check(PrecioTotal>=0),
   FechaVenta DATE NOT NULL,
   DNI VARCHAR2(9),
   FOREIGN KEY(DNI) REFERENCES SOCIO
@@ -41,7 +40,6 @@ CREATE TABLE VENTA (
 
 CREATE TABLE FACTURA (
   ID_FACTURA int PRIMARY KEY,
-  PrecioTotal Number check(PrecioTotal>=0),
   FechaDeExpedicion DATE DEFAULT SYSDATE,
   Devuelto VARCHAR2(1) CHECK( Devuelto IN('F','T')),
   ID_Venta int,
@@ -60,7 +58,6 @@ CREATE TABLE PROVEEDOR (
 CREATE TABLE PEDIDO(
 ID_Pedido int PRIMARY KEY,
 FechaPedido DATE NOT NULL,
-PrecioTotal NUMBER NOT NULL check (PrecioTotal>=0),
 ID_Emplazamiento int,
 CIF VARCHAR2(9),
 FOREIGN KEY (CIF) REFERENCES PROVEEDOR,
@@ -70,7 +67,6 @@ FOREIGN KEY (ID_Emplazamiento) REFERENCES EMPLAZAMIENTO
 CREATE TABLE ALBARAN (
 ID_Albaran int NOT NULL,
 FechaFirma DATE NOT NULL,
-PrecioTotal NUMBER NOT NULL check(PrecioTotal>=0),
 ID_Pedido INT PRIMARY KEY,
 FOREIGN KEY (ID_Pedido) REFERENCES PEDIDO);
 
@@ -99,10 +95,9 @@ CREATE TABLE ASOCIACION_PEDIDO_PRODUCTO(
     ID_PEDIDO int,
     ID_PRODUCTO int,
     PRIMARY KEY (ID_PEDIDO, ID_PRODUCTO),
-    Cantidad NUMBER(10) NOT NULL check(Cantidad>=0),
+    Cantidad NUMBER(10) NOT NULL check(Cantidad>=20),
     PrecioCompra NUMBER NOT NULL check(PrecioCompra>=0),
     IVA NUMBER NOT NULL check(IVA>=0 AND IVA<=1),
-    PrecioLinea NUMBER check(PrecioLinea>=0),
     FOREIGN KEY (ID_PEDIDO) REFERENCES PEDIDO,
     FOREIGN KEY (ID_PRODUCTO) REFERENCES PRODUCTO
 );
@@ -153,8 +148,7 @@ CREATE TABLE ASOCIACION_VENTA_PRODUCTO(
     FOREIGN KEY (ID_Producto) REFERENCES PRODUCTO,
     Cantidad NUMBER(6) check(Cantidad>=0),
     PrecioVenta NUMBER check(PrecioVenta>=0),
-    IvaVenta NUMBER check(IvaVenta>=0 AND IvaVenta<=1),
-    PrecioLinea Number check (PrecioLinea>=0)
+    IvaVenta NUMBER check(IvaVenta>=0 AND IvaVenta<=1)
 );
 
 /* SECUENCIAS */
@@ -198,7 +192,7 @@ END crea_ID_Albaran;
 
 /
 
-CREATE OR REPLACE TRIGGER Crea_Nuevo_Producto
+CREATE OR REPLACE TRIGGER Crea_ID_Producto
 BEFORE INSERT ON PRODUCTO
 FOR EACH ROW
 BEGIN
@@ -207,7 +201,7 @@ END Crea_Nuevo_Producto;
 
 /
 
-CREATE OR REPLACE TRIGGER Crea_Nuevo_Traspaso
+CREATE OR REPLACE TRIGGER Crea_ID_Traspaso
 BEFORE INSERT ON TRASPASO
 FOR EACH ROW
 BEGIN
@@ -216,7 +210,7 @@ END Crea_Nuevo_Traspaso;
 
 /
 
-CREATE OR REPLACE TRIGGER Crea_Nuevo_Solicitud
+CREATE OR REPLACE TRIGGER Crea_ID_Solicitud
 BEFORE INSERT ON SOLICITUD_TRASPASO
 FOR EACH ROW
 BEGIN

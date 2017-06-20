@@ -66,8 +66,7 @@ END PRUEBAS_EMPLAZAMIENTO;
 CREATE OR REPLACE PACKAGE PRUEBAS_ALBARAN AS
     PROCEDURE inicializar;
     PROCEDURE insertar
-        (nombre_prueba VARCHAR2, i_fecha DATE,
-        i_precio NUMBER, i_id_pedido INT, salidaEsperada BOOLEAN);
+        (nombre_prueba VARCHAR2, i_fecha DATE, i_id_pedido INT, salidaEsperada BOOLEAN);
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_albaran INT, salidaEsperada BOOLEAN);
 END PRUEBAS_ALBARAN;
@@ -77,8 +76,7 @@ END PRUEBAS_ALBARAN;
 CREATE OR REPLACE PACKAGE PRUEBAS_PEDIDO AS
     PROCEDURE inicializar;
     PROCEDURE insertar
-        (nombre_prueba VARCHAR2, i_fecha DATE, i_precio NUMBER,
-        i_id_emplazamiento INT, i_cif VARCHAR2, salidaEsperada BOOLEAN);
+        (nombre_prueba VARCHAR2, i_fecha DATE, i_id_emplazamiento INT, i_cif VARCHAR2, salidaEsperada BOOLEAN);
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_pedido INT, salidaEsperada BOOLEAN);
 END PRUEBAS_PEDIDO;
@@ -102,12 +100,12 @@ END PRUEBAS_PRODUCTO;
 CREATE OR REPLACE PACKAGE PRUEBAS_VENTA AS
     PROCEDURE inicializar;
     PROCEDURE insertar
-        (nombre_prueba VARCHAR2, i_precioVenta Number, i_fecha DATE, i_dni VARCHAR2,
+        (nombre_prueba VARCHAR2, i_fecha DATE, i_dni VARCHAR2,
         salidaEsperada BOOLEAN);
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_venta INT, salidaEsperada BOOLEAN);
-    procedure descuento
-        (nombre_prueba VARCHAR2, v_id_venta int,v_preciototal number,v_dni_socio varchar2, salidaEsperada BOOLEAN);
+    /*procedure descuento
+        (nombre_prueba VARCHAR2, v_id_venta int,v_preciototal number,v_dni_socio varchar2, salidaEsperada BOOLEAN);*/
 END PRUEBAS_VENTA;
 
 /
@@ -126,8 +124,8 @@ END PRUEBAS_SOLICITUD_TRASPASO;
 CREATE OR REPLACE PACKAGE PRUEBAS_FACTURA AS
     PROCEDURE inicializar;
     PROCEDURE insertar
-        (nombre_prueba VARCHAR2, i_precioTotal INT, i_fechaDeExpedicion DATE, i_devuelto VARCHAR2,
-        i_id_venta INT, i_id_emplazamiento INT, salidaEsperada BOOLEAN);
+      (nombre_prueba VARCHAR2, i_fechaDeExpedicion DATE, i_devuelto VARCHAR2,
+      i_id_venta INT, i_id_emplazamiento INT, salidaEsperada BOOLEAN);
     PROCEDURE actualizar
         (nombre_prueba VARCHAR2, a_id_factura INT,a_devuelto VARCHAR2,
         salidaEsperada BOOLEAN);
@@ -153,7 +151,7 @@ CREATE OR REPLACE PACKAGE PRUEBAS_A_VENTA_PRODUCTO AS
     PROCEDURE insertar
         (nombre_prueba VARCHAR2, i_id_venta INT, i_id_producto INT,
             i_cantidad NUMBER, i_precioVenta NUMBER, i_ivaVenta NUMBER,
-            i_precioLinea NUMBER, salidaEsperada BOOLEAN);
+             salidaEsperada BOOLEAN);
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_venta INT, e_id_producto INT, salidaEsperada BOOLEAN);
 END PRUEBAS_A_VENTA_PRODUCTO;
@@ -206,16 +204,17 @@ END PRUEBAS_A_PRODUCTO_TRASPASO;
 
 CREATE OR REPLACE PACKAGE PRUEBAS_A_PEDIDO_PRODUCTO AS
     PROCEDURE inicializar;
-    PROCEDURE insertar
+    /*PROCEDURE insertar
         (nombre_prueba VARCHAR2, i_id_pedido INT, i_id_producto INT,
-        i_cantidad NUMBER, i_precioCompra INT, i_iva INT, i_precioLinea INT,
-        salidaEsperada BOOLEAN);
+        i_cantidad NUMBER, i_precioCompra number, i_iva INT,
+        salidaEsperada BOOLEAN);*/
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_pedido INT, e_id_producto INT,
         salidaEsperada BOOLEAN);
 END PRUEBAS_A_PEDIDO_PRODUCTO;
 
 /
+/*
 CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
     PROCEDURE ganancias
         (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN);
@@ -225,7 +224,7 @@ CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
         (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_VENTA NUMBER, esperado number, salidaEsperada BOOLEAN);
 END PRUEBAS_FUNCIONES;
 /
-
+*/
 /* CUERPOS DE PRUEBAS */
 
 CREATE OR REPLACE PACKAGE BODY PRUEBAS_SOCIO AS
@@ -547,18 +546,18 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_FACTURA AS
     END inicializar;
 
     PROCEDURE insertar
-      (nombre_prueba VARCHAR2, i_precioTotal INT, i_fechaDeExpedicion DATE, i_devuelto VARCHAR2,
+      (nombre_prueba VARCHAR2, i_fechaDeExpedicion DATE, i_devuelto VARCHAR2,
       i_id_venta INT, i_id_emplazamiento INT, salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual factura%ROWTYPE;
     w_ID_factura INT;
     BEGIN
-        INSERT INTO factura VALUES(null,i_precioTotal, i_fechaDeExpedicion, i_devuelto, i_id_venta, i_id_emplazamiento);
+        INSERT INTO factura VALUES(null, i_fechaDeExpedicion, i_devuelto, i_id_venta, i_id_emplazamiento);
 
         w_ID_factura := S_ID_Factura.currval;
         SELECT * INTO actual FROM factura WHERE ID_factura = w_ID_factura;
 
-        IF (actual.precioTotal<>i_precioTotal) OR (actual.fechaDeExpedicion<>i_fechaDeExpedicion) OR (actual.devuelto<>i_devuelto) OR (actual.id_venta<>i_id_venta) OR (actual.id_emplazamiento<>i_id_emplazamiento)THEN
+        IF (actual.fechaDeExpedicion<>i_fechaDeExpedicion) OR (actual.devuelto<>i_devuelto) OR (actual.id_venta<>i_id_venta) OR (actual.id_emplazamiento<>i_id_emplazamiento)THEN
             salida := false;
         END IF;
 
@@ -753,18 +752,18 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_VENTA AS
     END inicializar;
 
     PROCEDURE insertar
-      (nombre_prueba VARCHAR2, i_precioventa number,i_fecha DATE, i_dni VARCHAR2,
+      (nombre_prueba VARCHAR2,i_fecha DATE, i_dni VARCHAR2,
         salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual venta%ROWTYPE;
     w_ID_Venta INT;
     BEGIN
-        INSERT INTO venta VALUES(null, i_precioventa, i_fecha, i_dni);
+        INSERT INTO venta VALUES(null, i_fecha, i_dni);
 
         w_ID_Venta := S_ID_Venta.currval;
         SELECT * INTO actual FROM venta WHERE ID_Venta = w_ID_Venta;
 
-        IF (actual.PrecioTotal<>i_PrecioVenta) OR (actual.fechaVenta<>i_fecha) OR (actual.dni<>i_dni) THEN
+        IF (actual.fechaVenta<>i_fecha) OR (actual.dni<>i_dni) THEN
             salida := false;
         END IF;
 
@@ -795,6 +794,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_VENTA AS
                 PRINTR(nombre_prueba, false, salidaEsperada);
                 ROLLBACK;
     END eliminar;
+    /*
     procedure descuento
         (nombre_prueba VARCHAR2, v_id_venta int,v_preciototal number,v_dni_socio varchar2, salidaEsperada BOOLEAN) as
         salida BOOLEAN := true;
@@ -812,7 +812,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_VENTA AS
             WHEN OTHERS THEN
                 PRINTR(nombre_prueba, false, salidaEsperada);
                 ROLLBACK;
-    end descuento;
+    end descuento;*/
 END PRUEBAS_VENTA;
 
 /
@@ -825,18 +825,18 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_PEDIDO AS
     END inicializar;
 
     PROCEDURE insertar
-      (nombre_prueba VARCHAR2, i_fecha DATE, i_precio NUMBER,
+      (nombre_prueba VARCHAR2, i_fecha DATE,
       i_id_emplazamiento INT, i_cif VARCHAR2, salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual pedido%ROWTYPE;
     w_ID_pedido INT;
     BEGIN
-        INSERT INTO pedido VALUES(null, i_fecha, i_precio, i_id_emplazamiento, i_cif);
+        INSERT INTO pedido VALUES(null, i_fecha, i_id_emplazamiento, i_cif);
 
         w_ID_pedido := S_ID_Pedido.currval;
         SELECT * INTO actual FROM pedido WHERE ID_Pedido = w_ID_pedido;
 
-        IF (actual.fechaPedido<>i_fecha) OR (actual.precioTotal<>i_precio) OR (actual.id_emplazamiento<>i_id_emplazamiento) OR (actual.cif<>i_cif) THEN
+        IF (actual.fechaPedido<>i_fecha) OR (actual.id_emplazamiento<>i_id_emplazamiento) OR (actual.cif<>i_cif) THEN
             salida := false;
         END IF;
 
@@ -988,12 +988,12 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_Albaran AS
 
     PROCEDURE insertar
        (nombre_prueba VARCHAR2, i_fecha DATE,
-        i_precio NUMBER, i_id_pedido INT, salidaEsperada BOOLEAN) AS
+         i_id_pedido INT, salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual Albaran%ROWTYPE;
     w_ID_Albaran INT;
     BEGIN
-        INSERT INTO Albaran VALUES(null, i_fecha, i_precio, i_id_pedido);
+        INSERT INTO Albaran VALUES(null, i_fecha, i_id_pedido);
 
         w_ID_Albaran := S_ID_Albaran.currval;
         SELECT * INTO actual FROM Albaran WHERE ID_Albaran = w_ID_Albaran;
@@ -1143,15 +1143,15 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
     BEGIN
         DELETE FROM asociacion_Pedido_Producto;
     END inicializar;
-
+  /*
     PROCEDURE insertar
-    (nombre_prueba VARCHAR2, i_id_pedido INT, i_id_producto INT,
-    i_cantidad NUMBER, i_precioCompra INT, i_iva INT, i_precioLinea INT,
-    salidaEsperada BOOLEAN) AS
+      (nombre_prueba VARCHAR2, i_id_pedido INT, i_id_producto INT,
+      i_cantidad NUMBER, i_precioCompra number, i_iva INT,
+      salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual asociacion_Pedido_Producto%ROWTYPE;
     BEGIN
-        INSERT INTO asociacion_Pedido_Producto VALUES(i_id_pedido, i_id_producto, i_cantidad, i_precioCompra, i_iva, i_precioLinea);
+        INSERT INTO asociacion_Pedido_Producto VALUES(i_id_pedido, i_id_producto, i_cantidad, i_precioCompra, i_iva,);
 
         SELECT * INTO actual FROM asociacion_Pedido_Producto WHERE ID_pedido = i_id_pedido and ID_producto = i_id_producto;
 
@@ -1166,7 +1166,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
             PRINTR(nombre_prueba, false, salidaEsperada);
             ROLLBACK;
     END insertar;
-
+    */
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_pedido INT, e_id_producto INT,
         salidaEsperada BOOLEAN) AS
@@ -1187,6 +1187,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
                 PRINTR(nombre_prueba, false, salidaEsperada);
                 ROLLBACK;
     END eliminar;
+    
 END PRUEBAS_A_PEDIDO_PRODUCTO;
 
 /
@@ -1201,15 +1202,15 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_VENTA_PRODUCTO AS
     PROCEDURE insertar
     (nombre_prueba VARCHAR2, i_id_venta INT, i_id_producto INT,
         i_cantidad NUMBER, i_precioVenta NUMBER, i_ivaVenta NUMBER,
-        i_precioLinea NUMBER, salidaEsperada BOOLEAN) AS
+        salidaEsperada BOOLEAN) AS
     salida BOOLEAN := true;
     actual asociacion_Venta_Producto%ROWTYPE;
     BEGIN
-        INSERT INTO asociacion_Venta_Producto VALUES(i_id_venta, i_id_producto, i_cantidad, i_precioVenta, i_ivaVenta, i_precioLinea);
+        INSERT INTO asociacion_Venta_Producto VALUES(i_id_venta, i_id_producto, i_cantidad, i_precioVenta, i_ivaVenta);
 
         SELECT * INTO actual FROM asociacion_Venta_Producto WHERE ID_Venta = i_id_venta and ID_producto = i_id_producto;
 
-        IF (actual.id_Venta<>i_id_Venta) OR (actual.id_producto<>i_id_producto) OR (actual.cantidad<>i_cantidad) OR (actual.precioVenta<>i_precioVenta) OR (actual.ivaVenta<>i_ivaVenta) OR (actual.precioLinea<>i_precioLinea) THEN
+        IF (actual.id_Venta<>i_id_Venta) OR (actual.id_producto<>i_id_producto) OR (actual.cantidad<>i_cantidad) OR (actual.precioVenta<>i_precioVenta) OR (actual.ivaVenta<>i_ivaVenta) THEN
             salida := false;
         END IF;
 
@@ -1245,7 +1246,7 @@ END PRUEBAS_A_VENTA_PRODUCTO;
 /
 
 
-
+/*
 CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
   PROCEDURE ganancias
     (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN) AS
@@ -1306,7 +1307,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
     
 END PRUEBAS_FUNCIONES;
 /
-
+*/
 DROP SEQUENCE S_ID_Producto;
 DROP SEQUENCE S_ID_Traspaso;
 DROP SEQUENCE S_ID_Solicitud;
@@ -1396,49 +1397,56 @@ EXECUTE PRUEBA_STOCK.eliminar('Stock eliminar',S_ID_Emplazamiento.currval-2,S_ID
 
 --VENTA
 EXECUTE pruebas_venta.inicializar();
-EXECUTE pruebas_venta.insertar('Venta insercion',0,sysdate,'29613400A',true);
-EXECUTE pruebas_venta.insertar('Venta insercion',0,sysdate,null,true);
-EXECUTE pruebas_venta.insertar('Venta insercion',0,sysdate,null,true);
+EXECUTE pruebas_venta.insertar('Venta insercion',sysdate,'29613400A',true);
+EXECUTE pruebas_venta.insertar('Venta insercion',sysdate,null,true);
+EXECUTE pruebas_venta.insertar('Venta insercion',sysdate,null,true);
 EXECUTE pruebas_venta.eliminar('Venta eliminar',S_ID_venta.currval,true);
-
+/*
+EXECUTE pruebas_venta.insertar('Venta insercion',0,sysdate,null,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval,s_id_producto.currval-1,28,10.5,0.21,0,true);
+INSERT INTO FACTURA VALUES(0,0,sysdate,'F',4,3);
+*/
+--EXECUTE Pruebas_factura.insertar('Factura insercion',0,sysdate,'F',s_id_venta.currval,S_ID_Emplazamiento.currval-1,true);
+--select S_ID_Emplazamiento.currval-1 from dual;
 --ASOCIACION_VENTA_PRODUCTO
 EXECUTE PRUEBAS_A_VENTA_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-2,3,10.5,0.21,0,true);
-EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-1,2,46.95,0.21,0,true);
-EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-2,3,10.5,0.21,0,true);
-EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-1,2,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-2,3,10.5,0.21,true);
+EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-1,s_id_producto.currval-1,2,46.95,0.21,true);
+EXECUTE PRUEBAS_A_VENTA_PRODUCTO.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-2,3,10.5,0.21,true);
+EXECUTE Pruebas_A_venta_producto.insertar('Venta-Producto insercion',s_id_venta.currval-2,s_id_producto.currval-1,2,46.95,0.21,true);
 EXECUTE PRUEBAS_A_VENTA_PRODUCTO.eliminar('Venta-Producto eliminar',s_id_venta.currval-2,s_id_producto.currval-1,true);
 
 --FACTURA
 EXECUTE PRUEBAS_factura.inicializar();
-EXECUTE Pruebas_factura.insertar('Factura insercion',119.13,sysdate,'F',s_id_venta.currval-2,S_ID_Emplazamiento.currval-1,true);
-EXECUTE Pruebas_factura.insertar('Factura insercion',125.4,sysdate,'F',s_id_venta.currval-1,S_ID_Emplazamiento.currval-2,true);
+EXECUTE Pruebas_factura.insertar('Factura insercion',sysdate,'F',s_id_venta.currval-2,S_ID_Emplazamiento.currval-1,true);
+EXECUTE Pruebas_factura.insertar('Factura insercion',sysdate,'F',s_id_venta.currval-1,S_ID_Emplazamiento.currval-2,true);
 EXECUTE Pruebas_factura.actualizar('Factura actualizar',s_id_factura.currval,'T',true);
-EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-2,125.4,'29613400A',true);
-EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-1,125.4,null,true);
+--EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-2,125.4,'29613400A',true);
+--EXECUTE Pruebas_venta.descuento('Descuento factura-venta',s_id_venta.currval-1,125.4,null,true);
 EXECUTE Prueba_stock.stock_correcto('Actualizacion de stock tras venta',s_id_emplazamiento.currval-1,s_id_producto.currval-2,22,3,true);
 EXECUTE Prueba_stock.stock_correcto('Actualizacion de stock tras venta',s_id_emplazamiento.currval-1,s_id_producto.currval-2,21,3,false);
 
 --PEDIDO
 EXECUTE PRUEBAS_PEDIDO.inicializar();
-EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,0,S_ID_Emplazamiento.currval-1,'B54129999',true);
-EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,0,S_ID_Emplazamiento.currval-2,'B54129999',true);
-EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,0,S_ID_Emplazamiento.currval-2,'B54129999',true);
+EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,S_ID_Emplazamiento.currval-1,'B54129999',true);
+EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,S_ID_Emplazamiento.currval-2,'B54129999',true);
+EXECUTE PRUEBAS_PEDIDO.insertar('Pedido insercion',sysdate,S_ID_Emplazamiento.currval-2,'B54129999',true);
 EXECUTE PRUEBAS_PEDIDO.eliminar('Pedido eliminar',S_ID_Pedido.currval,true);
 
 --PEDIDO_PRODUCTO
+
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.inicializar();
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,0.21,0,true);
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-2,s_id_producto.currval-1,22,46.95,0.21,0,true);
-EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-2,22,46.95,0.21,0,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-1,21,10.5,0.21,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-2,s_id_producto.currval-1,22,46.95,0.21,true);
+EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.insertar('PEDIDO_PRODUCTO insercion',S_ID_Pedido.currval-1,s_id_producto.currval-2,22,46.95,0.21,true);
 EXECUTE PRUEBAS_A_PEDIDO_PRODUCTO.eliminar('PEDIDO_PRODUCTO eliminar',S_ID_Pedido.currval-1,s_id_producto.currval-2,true);
 --ALBARAN
 
 EXECUTE PRUEBAS_ALBARAN.inicializar();
-EXECUTE PRUEBAS_ALBARAN.insertar('Albaran insercion',sysdate,0,S_ID_Pedido.currval-1,true);
+EXECUTE PRUEBAS_ALBARAN.insertar('Albaran insercion',sysdate,S_ID_Pedido.currval-1,true);
 EXECUTE PRUEBA_STOCK.stock_correcto_p('Actualizacion de stock tras comprar',s_ID_emplazamiento.currval-2,s_ID_producto.currval-1,8,21,true);
 EXECUTE PRUEBA_STOCK.stock_correcto_p('Actualizacion de stock tras comprar',s_ID_emplazamiento.currval-2,s_ID_producto.currval-1,8,15,false);
-EXECUTE PRUEBAS_ALBARAN.insertar('Albaran insercion',sysdate,0,S_ID_Pedido.currval-2,true);
+EXECUTE PRUEBAS_ALBARAN.insertar('Albaran insercion',sysdate,S_ID_Pedido.currval-2,true);
 EXECUTE PRUEBAS_ALBARAN.eliminar('Albaran eliminaxion',S_ID_Albaran.currval,true);
 
 --SOLICITUD_TRASPASO
@@ -1466,15 +1474,16 @@ EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.insertar('A-Producto-Traspaso Insertar', S_I
 EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,33,29,4,s_ID_producto.currval-1,true);
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
 --Pruebas de funciones
+/*
 EXECUTE PRUEBAS_FUNCIONES.ganancias('Función Ganancias mensuales',6,2017,-1008.87,true);
 EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Pedido('Función precio linea aso-pedido',9,2,220.5,true);
 EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Venta('Función precio linea aso-venta',9,2,93.9,true);
+*/
 --Tiene que dar -1008.87
 --select ganancias_mensuales(6,2017) from dual;
 -- Tiene que dar 220.5
-SELECT precioLinea_Aso_Pedido(9,2) FROM DUAL;
+--SELECT precioLinea_Aso_Pedido(9,2) FROM DUAL;
 --Tienda que dar 93.9
-SELECT precioLinea_Aso_Venta(9,2) FROM DUAL;
-
+--SELECT precioLinea_Aso_Venta(9,2) FROM DUAL;
 -- Select que muestra los productos ofrecidos y disponibles
 --SELECT nombre,id_emplazamiento from producto inner join stock on stock.ID_PRODUCTO = producto.id_producto;

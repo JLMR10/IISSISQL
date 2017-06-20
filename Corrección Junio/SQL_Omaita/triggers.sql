@@ -1,16 +1,5 @@
 /* TRIGGERS */
 
-CREATE OR REPLACE TRIGGER pedido_minimo
-  BEFORE INSERT or UPDATE ON ASOCIACION_PEDIDO_PRODUCTO
-  FOR EACH ROW
-BEGIN
-  IF :NEW.cantidad < 20
-  THEN raise_application_error(-20600, :NEW.cantidad || 'No se pueden pedir menos de 20 unidades de un producto');
-  END IF;
-END;
-
-/
-
 CREATE OR REPLACE TRIGGER descuento_socio
   BEFORE INSERT ON factura
   FOR EACH ROW
@@ -296,3 +285,32 @@ begin
   raise_application_error(-20601, :NEW.fechadeexpedicion || 'No se permite la devolución, han pasado más de 30 días');
   END IF;
 END devolucion;
+/
+/*
+create or replace trigger mensaje
+before update of cantidad on stock
+for each row
+DECLARE 
+   lines dbms_output.chararr; 
+   num_lines number; 
+BEGIN 
+  
+    if (:old.cantidad - :new.cantidad)<5 then
+   -- enable the buffer with default size 20000 
+   dbms_output.enable; 
+   
+   dbms_output.put_line('Hello Reader!'); 
+   dbms_output.put_line('Hope you have enjoyed the tutorials!'); 
+   dbms_output.put_line('Have a great time exploring pl/sql!'); 
+  
+   num_lines := 3; 
+  
+   dbms_output.get_lines(lines, num_lines); 
+  
+   FOR i IN 1..num_lines LOOP 
+      dbms_output.put_line(lines(i)); 
+   END LOOP; 
+   end IF;
+END mensaje; 
+/  
+*/
