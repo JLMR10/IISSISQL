@@ -287,3 +287,12 @@ create or replace trigger inicializa_IVA_APP
 END inicializa_IVA_APP;
 
 /
+
+create or replace trigger devolucion
+before update on factura
+for each row 
+begin 
+  if(sysdate - :old.fechadeexpedicion)>30 then 
+  raise_application_error(-20601, :NEW.fechadeexpedicion || 'No se permite la devolución, han pasado más de 30 días');
+  END IF;
+END devolucion;
