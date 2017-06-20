@@ -1,0 +1,57 @@
+Para poder pasar de UML a 3FN, tenemos que ser capaces de normalizar tanto en 2FN como en 1FN,
+esto lo hemos comprobado de la siguiente manera:
+  En cada tupla de la 3FN se le asigna a cada atributo un solo valor del dominio sobre el que está definido, es decir, no existen atributos con
+  varios valores. Esto comprobaría que está en 1FN.
+  Tras validar la 1FN, pasamos a la comprobación de la 2FN, para validar esta normalización tenemos que tener en cuenta que los atributos que no
+  sean Primary Key o Foreign Key (atributos no primos) deben de ser dependientes de estas claves, esto lo cumplimos gracias a las foreign keys y
+  primary keys creadas para las asociaciones, esta relación está explicada más adelante.
+  Finalmente llegamos a la comprobación de la 3FN, para esta comprobación tenemos que tener en cuenta que la relación tiene que estar en 2FN y que
+  la relación de tablas simplemente se haga mediante las primary y las foreign key, todo lo que no sea claves candidatas no puede estar en
+  varias entidades asociadas a la vez.
+
+  Los atributos de Socio son atributos directos en la 3FN, añadiendo que DNI será una primray key.
+
+  Socio tiene una relación 0..1 - n con Venta, venta mantiene todos sus atributos de manera directa en la 3FN, añadiendo un ID_VENTA como
+  primary key y debido a la relación con socio una foreign key llamada DNI.
+
+  Venta tiene una relación n - m con Producto, se crea una tabla intermedia debido a esta relación que es la tabla VentaProducto, con los siguientes
+  atributos: cantidad, precioVenta e ivaVenta. Además tiene ID_VENTA y ID_PRODUCTO como primary keys y foreigns keys, estas claves son provocadas
+  por la relación n - m entre Venta y Producto.
+
+  La tabla producto mantiene todos sus atributos de manera directa  en la 3FN y añade ID_PRODUCTO que será su primary key.
+
+  Venta tiene una relación 1 - 1 con Factura, factura mantiene todos sus atributos de manera directa  en la 3FN y añade un ID_FACTURA como primary key, un ID_VENTA
+  como foreign key debido a la relación con Venta y un ID_EMPLAZAMIENTO debido a la relación con Emplazamiento.
+
+  Factura tiene una relación n - 1 con Emplazamiento, emplazamiento  mantiene todos sus atributos de manera directa en la 3FN y añade un ID_EMPLAZAMIENTO como
+  primary key.
+
+  Producto tiene una relación n - m con Emplazamiento, esto da lugar a la creación de una tabla intermedia, para poder tratar la relación n - m, con
+  los siguientes atributos: cantidad, ID_PRODUCTO(primary key y foreign key) y ID_EMPLAZAMIENTO(primary key y foreign key). Estas claves son provocadas por
+  la relacion n - m entre Producto y Emplazamiento.
+
+  Proveedor tiene una relación 1 - n con Pedido, proveedor mantiene todos sus atributos de manera directa en la 3FN y añade un ID_PROVEEDOR como primary key.
+
+  Emplazamiento tiene una relación 1 - n con Pedido, pedido mantiene todos sus atributos de manera directa  en la 3FN, añade un ID_PEDIDO como primary key y un
+  ID_PROVEEDOR como foreign key debido a la relación con Proveedor.
+
+  Pedido tiene una relación n - m con Producto, se crea una tabla intermedia debido a esta relación que es la tabla Asociación Pedido-Producto, con los
+  siguientes atributos: cantidad, precioCompra, ivaCompra. Además tiene ID_PEDIDO y ID_PRODUCTO como primray keys y foreigns keys, estas claves son provocadas
+  por la relación n - m entre Pedido y Producto.
+
+  Albarán tiene una relación 1 - 0..1 con Pedido, albarán mantiene todos sus atributos de manera directa en la 3FN y añade un ID_ALBARAN como primary key.
+
+  Emplazamiento tiene una relación 1 - m bidireccional con Traspaso, traspaso mantiene todos sus atributos de manera directa en la 3FN y añade un ID_TRASPASO.
+
+  Emplazamiento tiene una relación 1 - m bidireccional con Solicitud-Trapaso, solicitud-traspaso mantiene todos sus atributos de manera directa en la 3FN
+  y añade un ID_Solicitud.
+
+  Traspaso tiene una relación n - m con Producto, esto da lugar a la creación de una tabla intermedia, para poder tratas la relación n-m, con los siguientes
+  atributos: cantidad, ID_Producto(primary key y foreign key) y ID_Traspaso(primary key y foreign key). Estas claves son provocadas por la relación n - m
+  entre Traspaso y Producto.
+
+  Solicitud-Trapaso tiene una relación n - m con Producto, esto da lugar a la creación de una tabla intermedia, para poder tratas la relación n-m, con los siguientes
+  atributos: cantidad, ID_Producto(primary key y foreign key) y ID_SOLICITUD(primary key y foreign key). Estas claves son provocadas por la relación n - m
+  entre Solicitud-Traspaso y Producto.
+
+  Tras seguir todos los pasos anteriores hemos convertido el MC en MR y cumplimos la 3FN.
