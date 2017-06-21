@@ -511,14 +511,35 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 \subsection{Reglas de negocio}
 
 \requit{RN-01}{Descuento a socios}{propietario de la cadena}{aplicar un 5\% de descuento en las ventas realizadas a socios}{recompensar su fidelidad}
+\textbf{P-RN-01}
+\begin{enumerate}
+	\item Cuando se realice una venta, si esta está asociada a un socio , se aplicara el descuento en la factura.
+\end{enumerate}
 
 \requit{RN-02}{Tamaño mínimo de pedidos}{propietario de la cadena quiero}{que los pedidos sean como mínimo de 20 unidades por producto}{abaratar gastos de transporte.}
+\textbf{P-RN-02}
+\begin{enumerate}
+	\item Cuando se realice un pedido, si la cantidad de algún producto no supera el mínimo no se realizará dicho pedido, en caso contrario se realizara sin ningún problema.
+\end{enumerate}
 
 \requit{RN-03}{Evitar traspaso si se provoca stock mínimo}{propietario de la cadena}{que las tiendas no puedan ofrecer el traspaso de un producto, si debido al traspaso el producto llega a su stock mínimo}{evitar que éstas se queden desabastecidas}
+\textbf{P-RN-03}
+\begin{enumerate}
+	\item No se podrá responder a una solicitud de traspaso si en caso de realizar el traspaso el producto solicitado se nos quedaría en stock mínimo
+\end{enumerate}
 
 \requit{RN-04}{Política de devoluciones}{propietario de la cadena}{que solo se acepten devoluciones, con un plazo máximo de 30 días después de la compra}{dificultar la devolución de productos usados}
+\textbf{P-RN-04}
+\begin{enumerate}
+	\item Si se intenta realizar una devolución dentro del plazo de devolución establecido por la tienda (en nuestro caso 30 días a partir del día de la compra) se permite realizar dicha devolución ya sea total o parcial.
+	\item En caso contrario no se podrá realizar la devolución.
+\end{enumerate}
 
 \requit{RN-05}{Aviso stock mínimo}{trabajador de una tienda}{obtener un aviso cuando el stock de un producto llegue al stock mínimo}{evitar el desabastecimiento de un producto}
+\textbf{P-RN-05}
+\begin{enumerate}
+	\item Cuando un producto este bajo el stock mínimo saltara un mensaje de aviso para tener en cuenta su futura reposición 
+\end{enumerate}
 
 \section{Pruebas de aceptación}
 
