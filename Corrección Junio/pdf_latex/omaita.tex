@@ -251,19 +251,23 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 
 \requit{RI-01}{Información sobre ventas}{Propietario de la cadena}{que el sistema almacene la información correspondiente a las ventas, guardando así los siguientes datos
 	\begin{itemize}
-		\item Precio total de la venta.
 		\item Fecha en la que se llevó acabo la venta.
 		\item La relación entre producto y venta que almacenará: el producto vendido, el precio y el IVA del mismo en el momento en el que se vendió.
 	\end{itemize}}{conocer los datos de las ventas realizadas.}
+\textbf{P-RI-01}
+\begin{enumerate}
+	\item Cuando se cree una nueva venta, si los datos introducidos son correctos, se almacenará en la lista de ventas.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \requit{RI-02}{Información sobre facturas}{propietario de la cadena}{que el sistema almacene la información correspondiente a las facturas, guardando así los siguientes datos:
 	
 	\begin{itemize}
-		\item Precio final de la venta.
 		\item Fecha en la que se tramita la factura.
 		\item Número de la factura.
 		\item Un campo llamado devuelto, usado para las devoluciones, si el campo tiene el valor false, entonces podemos contabilizar esa factura sin problemas, si el campo tiene el valor true significará que el dinero fue devuelto al cliente y por la tanto no podríamos contabilizarlo.
 \end{itemize}}{conocer los datos de las facturas expedidas.}
+
 
 \requit{RI-03}{Información sobre socios}{propietario de la cadena}{que el sistema almacene la información de los clientes que son socios, guardando los siguientes datos en él:
 	\begin{itemize}
@@ -274,6 +278,11 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 		\item Fecha de Nacimiento.
 		\item Email.
 \end{itemize}}{llevar un control de los clientes que son socios y así poderles aplicar descuentos en sus compras.}
+\textbf{P-RI-03}
+\begin{enumerate}
+	\item Cuando se cree una nueva factura, si los datos introducidos son correctos, se almacenará en la lista de factura.
+	\item En caso de que algún dato sea incorrecto (como por ejemplo un DNI duplicado) no se almacenara.
+\end{enumerate}
 
 \requit{RI-04}{Información sobre productos}{propietario de la cadena}{que los productos que venda la cadena se guarden con las siguientes características en el sistema:
 	\begin{itemize}
@@ -283,10 +292,25 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 		\item Precio del producto.
 		\item IVA actual, para controlar el IVA en todo momento
 	\end{itemize}}{conocer los datos de cada producto.}
+\textbf{P-RI-04}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo producto, si los datos introducidos son correctos, se almacenará en la lista de productos.
+	\item En caso de que algún dato sea incorrecto (como por ejemplo un precio negativo duplicado) no se almacenara.
+\end{enumerate}
+
 
 \requit{RI-05}{Stock del producto}{propietario de la cadena}{saber el stock de cada producto en cada tienda de la cadena y del almacén}{controlar el stock de la cadena}
+\textbf{P-RI-05}
+\begin{enumerate}
+	\item Actualizar la lista de stocks cuando se cree uno nuevo o se modifique alguno ya existente.
+\end{enumerate}
 
 \requit{RI-06}{Información sobre los emplazamientos}{propietario de la cadena}{guardar la dirección de las tiendas y del almacén de la cadena, además de su teléfono de contacto}{conocer la localización de las mismas}
+\textbf{P-RI-06}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo emplazamiento, si los datos introducidos son correctos, se almacenará en la lista de emplazamientos.
+	\item En caso de que algún dato sea incorrecto (como por ejemplo una dirección inexistente) no se almacenara.
+\end{enumerate}
 
 \requit{RI-07}{Información sobre los proveedores}{propietario de la cadena}{disponer de la siguiente información sobre proveedores:
 	\begin{itemize}
@@ -295,31 +319,54 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 		\item Número de teléfono.
 		\item Email.
 	\end{itemize}}{saber a qué proveedores puede realizar los pedidos}
+\textbf{P-RI-07}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo proveedor, si los datos introducidos son correctos, se almacenará en la lista de proveedores.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \requit{RI-08}{Información sobre los pedidos}{propietario de la cadena}{que el sistema almacene los pedidos guardando los siguientes datos:
 	\begin{itemize}
 		\item Fecha en la que se realiza.
-		\item Precio total del pedido.
 		\item Una asociación que controla la cantidad de cada producto del pedido, el precio y el IVA.
 	\end{itemize}}{conocer los datos de los pedidos realizados.}
+\textbf{P-RI-08}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo pedido, si los datos introducidos son correctos, se almacenará en la lista de pedidos.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \requit{RI-09}{Información sobre traspasos}{propietario de la cadena}{que el sistema guarde los traspasos almacenando los siguientes datos:
 	\begin{itemize}
 		\item Fecha de traspaso.
 		\item Asociación que controla la cantidad de cada producto en el traspaso.
 	\end{itemize}}{conocer los datos de los traspasos realizados.}
+\textbf{P-RI-09}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo traspaso, si los datos introducidos son correctos, se almacenará en la lista de traspasos.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \requit{RI-10}{Información sobre el albarán}{propietario de la cadena}{que el sistema almacene información correspondiente a los albaranes, guardando así los siguientes datos
 	\begin{itemize}
 		\item Fecha de firma del albarán.
-		\item Precio total.
 	\end{itemize}}{tener un control de los pedidos recibidos los cuales son controlados por los albaranes.}
+\textbf{P-RI-10}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo albarán, si los datos introducidos son correctos, se almacenará en la lista de albaranes.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \requit{RI-11}{Información sobre solicitud}{propietario de la cadena}{que el sistema almacene información correspondiente a las solicitudes de traspaso, guardando así los siguientes datos
 	\begin{itemize}
 		\item Fecha de solicitud.
 		\item Asociación que controla la cantidad de cada producto en la solicitud
 \end{itemize}}{conocer los datos de las solicitudes realizadas.}
+\textbf{P-RI-11}
+\begin{enumerate}
+	\item Cuando se inserte un nuevo pedido, si los datos introducidos son correctos, se almacenará en la lista de pedidos.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 \subsection{Requisitos funcionales}
 
@@ -424,7 +471,10 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 \textbf{P-RF-15}
 \begin{enumerate}
 	\item Insertar en la lista de emplazamientos un nuevo emplazamiento rellenando un formulario con los datos de este, y tras ello se actualizará dicha lista apareciendo en ella el nuevo emplazamiento.
-	\item Cuando se elimine un emplazamiento, la lista de emplazamientos se actualizará de forma de que el emplazamiento eliminado ya no aparezca en esta.
+	\item Cuando se elimine un emplazamiento, la lista de emplazamientos se actualizará de forma de que el emplazamiento eliminado ya nTras una devolución se marcará en la factura como que se ha realizado dicha acción modificando el campo correspondiente.
+	\item En el caso de que la devolución solo sea parcial y no total se creara una copia de la factura donde solo aparezcan los productos no devueltos y la antigua se marcara como devuelta.
+	\item En ambos casos se actualizará el stock de los productos devueltos.
+	\item Si se intenta realizar la devolución de una factura, la cual haya excedido el tiempo de devolución, no se realizará dicha devolución.o aparezca en esta.
 \end{enumerate}
 
 \requit{RF-16}{Modificar emplazamientos}{propietario de la cadena}{poder modificar la dirección y el número de teléfono de un emplazamiento}{tener los datos actualizados de mis emplazamientos.}
