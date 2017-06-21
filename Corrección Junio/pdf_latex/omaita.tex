@@ -212,14 +212,14 @@ Nuestro cliente busca ser una tienda puntera en su cadena gracias a que tiene a 
 
 \subsection{Proceso de disponibilidad}
 \begin{figure}[H]
-	\includegraphics[width=\paperwidth, center]{images/bpmn/disponibilidad .png}
+	\includegraphics[width=\paperwidth, center]{images/bpmn/disponibilidad.png}
 	\caption{Proceso de disponibilidad}
 \end{figure}
 %\includegraphics[width=\paperwidth, center]{images/bpmn/disponibilidad .png}
 
 \subsection{Proceso de creación de socios}
 \begin{figure}[H]
-	\includegraphics[width=\paperwidth, center]{images/bpmn/socios .png}
+	\includegraphics[width=\paperwidth, center]{images/bpmn/socios.png}
 	\caption{Proceso de creación de socios}
 \end{figure}
 %\includegraphics[width=\paperwidth, center]{images/bpmn/socios .png}
@@ -267,6 +267,11 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 		\item Número de la factura.
 		\item Un campo llamado devuelto, usado para las devoluciones, si el campo tiene el valor false, entonces podemos contabilizar esa factura sin problemas, si el campo tiene el valor true significará que el dinero fue devuelto al cliente y por la tanto no podríamos contabilizarlo.
 \end{itemize}}{conocer los datos de las facturas expedidas.}
+\textbf{P-RI-02}
+\begin{enumerate}
+	\item Cuando se cree una nueva factura, si los datos introducidos son correctos, se almacenará en la lista de factura.
+	\item En caso de que algún dato sea incorrecto no se almacenara.
+\end{enumerate}
 
 
 \requit{RI-03}{Información sobre socios}{propietario de la cadena}{que el sistema almacene la información de los clientes que son socios, guardando los siguientes datos en él:
@@ -541,91 +546,6 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 	\item Cuando un producto este bajo el stock mínimo saltara un mensaje de aviso para tener en cuenta su futura reposición 
 \end{enumerate}
 
-\section{Pruebas de aceptación}
-
-\textbf{PA-01 Ventas}:
-\begin{itemize}
-	\item Se realiza una venta y con una consulta vemos que la fecha y el precio total es el esperado.
-\end{itemize}
-
-\textbf{PA-02 Facturas y Devoluciones}:
-\begin{itemize}
-	\item Se realiza una factura y con una consulta vemos que el precio final de la venta, la fecha, el número de la factura y el IVA es el esperado.
-	\item Un cliente devuelve un producto dentro del plazo de 30 días y por tanto se devuelve el dinero al cliente, realizamos una consulta sobre la factura del producto devuelto y vemos la factura original con el campo devuelto como True.
-	\item Tras la situación anterior el trabajador crea una nueva factura con todos los productos originales de la compra menos con el que se ha devuelto, entonces se realiza una consulta a la factura y vemos como se ha eliminado correctamente el producto devuelto y no se ha contabilizado en el precio de la factura. (Situación que solo se da si el producto devuelto pertenece a una factura de más productos)
-	\item Un cliente desea devolver un producto tras 30 días de su compra, los artículos no pueden ser devueltos debido a que ha pasado más de 30 días desde su compra.
-\end{itemize}
-
-\textbf{PA-03 Socios}:
-\begin{itemize}
-	\item Se añade un nuevo socio, se actualiza la lista de socios y este aparece con todos los siguientes datos: nombre, apellidos, DNI, dirección, fecha de nacimiento y email.
-	\item Se elimina un socio, se actualiza la lista de socios y en ella no aparece el socio.
-	\item Se modifica los datos de un socio, se actualiza la lista de socios y este aparece con sus datos modificados.
-	\item Se intenta añadir un nuevo socio, pero le faltan datos, el sistema no permite añadirlo.
-	\item Se intentar añadir un nuevo socio, pero ya está en la base de datos y el sistema no nos lo permite.
-\end{itemize}
-
-\textbf{PA-04 Productos}:
-\begin{itemize}
-	\item Se añade un nuevo producto, se actualiza la lista de productos y este aparece con todos los siguientes datos: nombre, descripción, categoría, precio del producto e IVA.
-	\item Se elimina un producto, se actualiza la lista de productos y en ella no aparece el producto eliminado.
-	\item Se modifica los datos de un producto, se actualiza la lista de productos y este aparece con sus datos modificados.
-	\item Se intenta añadir un producto nuevo, pero le faltan datos, el sistema no permite añadirlo.
-	\item Se desea añadir un producto que ya está en la base de datos y el sistema no nos lo permite.
-\end{itemize}
-
-\textbf{PA-05 Stock}:
-\begin{itemize}
-	\item Si el stock de un producto es de 10 y un cliente quiere comprar 11, el stock es superado y el sistema no permite esa compra.
-	\item Si el stock de un producto es de 10 y un cliente quiere comprar 3, se le permite la venta y se modifica el stock en la base de datos.
-	\item Se realiza un traspaso entre 2 emplazamientos, hacemos 2 consultas y comprobamos que el stock de cada emplazamiento es el correcto tras la transacción.
-	\item El stock de un producto es de 6 y un cliente realiza una compra de ese producto, entonces se muestra un aviso de que el stock de ese producto ha alcanzado el stock mínimo.
-	\item Consultamos el stock de la tienda y después recibimos el albarán del pedido que habíamos realizado, consultamos de nuevo el stock y vemos que se ha actualizado correctamente.
-\end{itemize}
-
-\textbf{PA-06 Proveedores}:
-\begin{itemize}
-	\item Se registra un proveedor nuevo, se actualiza la lista de proveedores y aparece el proveedor con los siguientes datos: nombre, CIF, número de teléfono y email.
-	\item Se modifican los datos de un proveedor, se actualiza la lista de proveedores y sale el proveedor con los datos modificados.
-	\item Se elimina un proveedor, al actualizar la lista de los proveedores, el proveedor eliminado ya no aparece.
-	\item Se intenta añadir un proveedor que ya está en la base de datos y el sistema no lo permite.
-\end{itemize}
-
-\textbf{PA-07 Pedidos y albaranes}:
-\begin{itemize}
-	\item El almacén ha llegado a stock mínimo de algunos de sus productos y se realiza un pedido al proveedor o proveedores, tras recibir los productos del proveedor hacemos una consulta para ver el albarán está en orden y que los productos del pedido son los que se solicitaron.
-	\item Se realiza una consulta sobre el pedido que se había realizado y vemos que se muestran los siguientes datos: fecha en la que se realizó, precio total y emplazamiento que realizó el pedido.
-	\item Se intenta realizar un pedido de 15 unidades y salta un mensaje de error, ya que el pedido tiene que ser de 20 unidades mínimo.
-	\item Se crea un albarán con los datos recibidos del albarán de entrega y hacemos una consulta para ver que se muestra correctamente.
-\end{itemize}
-
-\textbf{PA-08 Traspasos y solicitudes}:
-\begin{itemize}
-	\item Falta stock de un producto y se solicita a otro emplazamiento, el otro emplazamiento realiza el traspaso y se reciben los productos. Hacemos una consulta para la solicitud y otra consulta para traspaso y vemos que los productos son correctos, además de que aparecen las respectivas fechas y los emplazamientos de la relación.
-	\item Se intenta solicitar un traspaso de 3 unidades de un producto a una tienda, pero la tienda a la que se solicita el traspaso solo posee 6 unidades del producto por lo que salta un mensaje de que no se puede solicitar el traspaso a esta tienda.
-\end{itemize}
-
-\textbf{PA-09 Emplazamientos}:
-\begin{itemize}
-	\item Se añade una nueva tienda, se realiza una consulta y vemos que se ha añadido correctamente.
-	\item Se cambia la localización del almacén, se realiza una consulta y vemos que se ha cambiado correctamente.
-	\item Se elimina una tienda, se realiza una consulta y vemos que se ha eliminado correctamente y ya no aparece en la lista de emplazamientos.
-	\item Se realiza una consulta sobre el stock de una tienda y este se muestra correctamente.
-\end{itemize}
-
-\textbf{PA-10 Descuentos}:
-\begin{itemize}
-	\item Un socio va a gastar un total de 100 euros en nuestros productos, al ser socio se le aplica un descuento del 5\%, por tanto, se le rebajan 5 euros en la factura.
-	\item Un cliente va a gastar un total de 50 euros, al no ser socio no se le aplica el descuento y tiene que pagar los 50 euros completos.
-\end{itemize}
-
-\textbf{PA-11 Tamaño mínimo pedidos}:
-\begin{itemize}
-	\item Se desea realizar un pedido de 10 productos y de cada producto se requieren 20 unidades, por tanto, se puede hacer el pedido.
-	\item Se desea realizar el pedido de un producto con una cantidad equivalente a 15, este pedido no se podría llevar a cabo debido a que no llega a las 20 unidades necesarias.
-\end{itemize}
-
-
 \section{Modelo Conceptual}
 \subsection{Diagramas de clases UML}
 
@@ -681,38 +601,45 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 	\label{Requisitos funcionales}
 	\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 			\hline
-			\textbf{PA-01} & x           &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-02} &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             & x           &             \\ \hline
-			\textbf{PA-03} &             &             & x           & x           & x           &             &             &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-04} &             &             &             &             &             & x           &             &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-05} &             & x           &             &             &             &             & x           &             &             & x           &             &             & x           &             &             &             &             &             \\ \hline
-			\textbf{PA-06} &             &             &             &             &             &             &             & x           &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-07} &             &             &             &             &             &             &             &             & x           & x           &             &             &             &             &             &             &             & x           \\ \hline
-			\textbf{PA-08} &             &             &             &             &             &             &             &             &             &             & x           & x           &             & x           &             &             &             &             \\ \hline
-			\textbf{PA-09} &             &             &             &             &             &             & x           &             &             &             &             &             &             &             & x           & x           &             &             \\ \hline
-			\textbf{PA-10} &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-11} &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{}      & \textbf{01} & \textbf{02} & \textbf{03} & \textbf{04} & \textbf{05} & \textbf{06} & \textbf{07} & \textbf{08} & \textbf{09} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} \\ \hline
+			\textbf{P-RF-01} & X             &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-02} &               & X             &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-03} &               &               & X             &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-04} &               &               &               & X             &               &               &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-05} &               &               &               &               & X             &               &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-06} &               &               &               &               &               & X             &               &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-07} &               &               &               &               &               &               & X             &               &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-08} &               &               &               &               &               &               &               & X             &               &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-09} &               &               &               &               &               &               &               &               & X             &               &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-10} &               &               &               &               &               &               &               &               &               & X             &               &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-11} &               &               &               &               &               &               &               &               &               &               & X             &               &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-12} &               &               &               &               &               &               &               &               &               &               &               & X             &               &               &               &               &               &               \\ \hline
+			\textbf{P-RF-13} &               &               &               &               &               &               &               &               &               &               &               &               & X             &               &               &               &               &               \\ \hline
+			\textbf{P-RF-14} &               &               &               &               &               &               &               &               &               &               &               &               &               & X             &               &               &               &               \\ \hline
+			\textbf{P-RF-15} &               &               &               &               &               &               &               &               &               &               &               &               &               &               & X             &               &               &               \\ \hline
+			\textbf{P-RF-16} &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               & X             &               &               \\ \hline
+			\textbf{P-RF-17} &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               & X             &               \\ \hline
+			\textbf{P-RF-18} &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               &               & X             \\ \hline
+			\textbf{}        & \textbf{01} & \textbf{02} & \textbf{03} & \textbf{04} & \textbf{05} & \textbf{06} & \textbf{07} & \textbf{08} & \textbf{09} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} \\ \hline
 	\end{tabular}}
 \end{table}
 
 \begin{table}[H]
 	\centering
-	\caption{\textbf{Requisitos de informacion}}
+	\caption{\textbf{Requisitos de información}}
 	\label{Requisitos de informacion}
 	\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 			\hline
-			\textbf{PA-01} & x           &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-02} &             & x           &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-03} &             &             & x           &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-04} &             &             &             & x           &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-05} &             &             &             &             & x           &             &             &             &             &             &             \\ \hline
-			\textbf{PA-06} &             &             &             &             &             &             & x           &             &             &             &             \\ \hline
-			\textbf{PA-07} &             &             &             &             &             &             &             & x           &             & x           &             \\ \hline
-			\textbf{PA-08} &             &             &             &             &             &             &             &             & x           &             & x           \\ \hline
-			\textbf{PA-09} &             &             &             &             &             & x           &             &             &             &             &             \\ \hline
-			\textbf{PA-10} &             &             &             &             &             &             &             &             &             &             &             \\ \hline
-			\textbf{PA-11} &             &             &             &             &             &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-01} & X           &             &             &             &             &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-02} &             & X           &             &             &             &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-03} &             &             & X           &             &             &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-04} &             &             &             & X           &             &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-05} &             &             &             &             & X           &             &             &             &             &             &             \\ \hline
+			\textbf{P-RI-06} &             &             &             &             &             &    X        &             &             &             &             &             \\ \hline
+			\textbf{P-RI-07} &             &             &             &             &             &             &  X          &             &             &             &             \\ \hline
+			\textbf{P-RI-08} &             &             &             &             &             &             &             & X           &             &             &             \\ \hline
+			\textbf{P-RI-09} &             &             &             &             &             &             &             &             &  X          &             &             \\ \hline
+			\textbf{P-RI-10} &             &             &             &             &             &             &             &             &             & X           &             \\ \hline
+			\textbf{P-RI-11} &             &             &             &             &             &             &             &             &             &             & X           \\ \hline
 			\textbf{}      & \textbf{01} & \textbf{02} & \textbf{03} & \textbf{04} & \textbf{05} & \textbf{06} & \textbf{07} & \textbf{08} & \textbf{09} & \textbf{10} & \textbf{11} \\ \hline
 	\end{tabular}}
 \end{table}
@@ -723,17 +650,11 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 	\label{Reglas de negocio}
 	\begin{tabular}{|c|c|c|c|c|c|}
 		\hline
-		\textbf{PA-01} &             &             &             &             & x           \\ \hline
-		\textbf{PA-02} & x           &             &             & x           &             \\ \hline
-		\textbf{PA-03} & x           &             &             &             &             \\ \hline
-		\textbf{PA-04} &             & x           &             & x           &             \\ \hline
-		\textbf{PA-05} &             &             & x           &             & x           \\ \hline
-		\textbf{PA-06} &             & x           &             &             &             \\ \hline
-		\textbf{PA-07} &             & x           &             &             & x           \\ \hline
-		\textbf{PA-08} &             &             & x           &             &             \\ \hline
-		\textbf{PA-09} &             &             & x           & x           &             \\ \hline
-		\textbf{PA-10} & x           &             &             &             &             \\ \hline
-		\textbf{PA-11} &             & x           &             &             &             \\ \hline
+		\textbf{P-RN-01} & X           &             &             &             &             \\ \hline
+		\textbf{P-RN-02} &             &   X         &             &             &             \\ \hline
+		\textbf{P-RN-03} &             &             &     X       &             &             \\ \hline
+		\textbf{P-RN-04} &             &             &             & X           &             \\ \hline
+		\textbf{P-RN-05} &             &             &             &             & X           \\ \hline
 		\textbf{}      & \textbf{01} & \textbf{02} & \textbf{03} & \textbf{04} & \textbf{05} \\ \hline
 	\end{tabular}
 \end{table}
@@ -744,16 +665,16 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 	\centering
 	\caption{\textbf{Escenarios}}
 	\label{Escenarios}
-	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+	\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline
-		\textbf{Escenario 01} &             &             &             & X           &             & X           & X           &             & X           &             & X           \\ \hline
-		\textbf{Escenario 02} &             &             &             & X           &             & X           & X           &             & X           &             & X           \\ \hline
-		\textbf{Escenario 03} &             &             &             & X           & X           &             &             & X           & X           &             &             \\ \hline
-		\textbf{Escenario 04} &             &             &             & X           & X           &             &             & X           & X           &             &             \\ \hline
-		\textbf{Escenario 05} & X           & X           &             & X           & X           &             &             &             &             &             &             \\ \hline
-		\textbf{Escenario 06} & X           & X           & X           & X           & X           &             &             &             &             & X           &             \\ \hline
-		\textbf{}             & \textbf{01} & \textbf{02} & \textbf{03} & \textbf{04} & \textbf{05} & \textbf{06} & \textbf{07} & \textbf{08} & \textbf{09} & \textbf{10} & \textbf{11} \\ \hline
-	\end{tabular}
+		\textbf{Escenario 01} & X                & X                & X                & X                & X                & X                &                  &                  &                  &                  &                  \\ \hline
+		\textbf{Escenario 02} & X                & X                & X                & X                & X                & X                &                  &                  &                  &                  &                  \\ \hline
+		\textbf{Escenario 03} &                  &                  &                  & X                & X                & X                &                  &                  & X                &                  &                  \\ \hline
+		\textbf{Escenario 04} &                  &                  &                  & X                & X                & X                &                  &                  & X                &                  &                  \\ \hline
+		\textbf{Escenario 05} &                  &                  &                  & X                & X                & X                & X                & X                &                  & X                & X                \\ \hline
+		\textbf{Escenario 06} &                  &                  &                  & X                & X                & X                & X                & X                &                  & X                & X                \\ \hline
+		\textbf{}             & \textbf{P-RI-01} & \textbf{P-RI-02} & \textbf{P-RI-03} & \textbf{P-RI-04} & \textbf{P-RI-05} & \textbf{P-RI-06} & \textbf{P-RI-07} & \textbf{P-RI-08} & \textbf{P-RI-09} & \textbf{P-RI-10} & \textbf{P-RI-11} \\ \hline
+	\end{tabular}}
 \end{table}
 
 \subsection{Tipos de UML frente a Requisitos}

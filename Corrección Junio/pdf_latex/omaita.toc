@@ -15,21 +15,20 @@
 \contentsline {subsection}{\numberline {5.3}Requisitos funcionales}{}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Requisitos no funcionales}{}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Reglas de negocio}{}{subsection.5.5}
-\contentsline {section}{\numberline {6}Pruebas de aceptaci\IeC {\'o}n}{}{section.6}
-\contentsline {section}{\numberline {7}Modelo Conceptual}{}{section.7}
-\contentsline {subsection}{\numberline {7.1}Diagramas de clases UML}{}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Escenarios de prueba}{}{subsection.7.2}
-\contentsline {section}{\numberline {8}Matrices de trazabilidad}{}{section.8}
-\contentsline {subsection}{\numberline {8.1}Pruebas de aceptaci\IeC {\'o}n frente a requisitos}{}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Pruebas de aceptaci\IeC {\'o}n frente a escenarios de prueba}{}{subsection.8.2}
-\contentsline {subsection}{\numberline {8.3}Tipos de UML frente a Requisitos}{}{subsection.8.3}
-\contentsline {section}{\numberline {9}Modelos relacionales}{}{section.9}
-\contentsline {subsection}{\numberline {9.1}3FN Venta}{}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}3FN Traspaso - Pedido}{}{subsection.9.2}
-\contentsline {section}{\numberline {10}C\IeC {\'o}digo SQL de la base de datos}{}{section.10}
-\contentsline {subsection}{\numberline {10.1}Tablas}{}{subsection.10.1}
-\contentsline {subsection}{\numberline {10.2}Funciones y Procedures}{}{subsection.10.2}
-\contentsline {subsection}{\numberline {10.3}Triggers}{}{subsection.10.3}
-\contentsline {subsection}{\numberline {10.4}Pruebas}{}{subsection.10.4}
-\contentsline {section}{\numberline {11}Ap\IeC {\'e}ndice}{}{section.11}
-\contentsline {subsection}{\numberline {11.1}Actas de reuni\IeC {\'o}n}{}{subsection.11.1}
+\contentsline {section}{\numberline {6}Modelo Conceptual}{}{section.6}
+\contentsline {subsection}{\numberline {6.1}Diagramas de clases UML}{}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Escenarios de prueba}{}{subsection.6.2}
+\contentsline {section}{\numberline {7}Matrices de trazabilidad}{}{section.7}
+\contentsline {subsection}{\numberline {7.1}Pruebas de aceptaci\IeC {\'o}n frente a requisitos}{}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Pruebas de aceptaci\IeC {\'o}n frente a escenarios de prueba}{}{subsection.7.2}
+\contentsline {subsection}{\numberline {7.3}Tipos de UML frente a Requisitos}{}{subsection.7.3}
+\contentsline {section}{\numberline {8}Modelos relacionales}{}{section.8}
+\contentsline {subsection}{\numberline {8.1}3FN Venta}{}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}3FN Traspaso - Pedido}{}{subsection.8.2}
+\contentsline {section}{\numberline {9}C\IeC {\'o}digo SQL de la base de datos}{}{section.9}
+\contentsline {subsection}{\numberline {9.1}Tablas}{}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}Funciones y Procedures}{}{subsection.9.2}
+\contentsline {subsection}{\numberline {9.3}Triggers}{}{subsection.9.3}
+\contentsline {subsection}{\numberline {9.4}Pruebas}{}{subsection.9.4}
+\contentsline {section}{\numberline {10}Ap\IeC {\'e}ndice}{}{section.10}
+\contentsline {subsection}{\numberline {10.1}Actas de reuni\IeC {\'o}n}{}{subsection.10.1}

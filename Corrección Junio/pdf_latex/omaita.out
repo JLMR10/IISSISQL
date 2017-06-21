@@ -13,21 +13,20 @@
 \BOOKMARK [2][-]{subsection.5.3}{Requisitos funcionales}{section.5}% 13
 \BOOKMARK [2][-]{subsection.5.4}{Requisitos no funcionales}{section.5}% 14
 \BOOKMARK [2][-]{subsection.5.5}{Reglas de negocio}{section.5}% 15
-\BOOKMARK [1][-]{section.6}{Pruebas de aceptaci\363n}{}% 16
-\BOOKMARK [1][-]{section.7}{Modelo Conceptual}{}% 17
-\BOOKMARK [2][-]{subsection.7.1}{Diagramas de clases UML}{section.7}% 18
-\BOOKMARK [2][-]{subsection.7.2}{Escenarios de prueba}{section.7}% 19
-\BOOKMARK [1][-]{section.8}{Matrices de trazabilidad}{}% 20
-\BOOKMARK [2][-]{subsection.8.1}{Pruebas de aceptaci\363n frente a requisitos}{section.8}% 21
-\BOOKMARK [2][-]{subsection.8.2}{Pruebas de aceptaci\363n frente a escenarios de prueba}{section.8}% 22
-\BOOKMARK [2][-]{subsection.8.3}{Tipos de UML frente a Requisitos}{section.8}% 23
-\BOOKMARK [1][-]{section.9}{Modelos relacionales}{}% 24
-\BOOKMARK [2][-]{subsection.9.1}{3FN Venta}{section.9}% 25
-\BOOKMARK [2][-]{subsection.9.2}{3FN Traspaso - Pedido}{section.9}% 26
-\BOOKMARK [1][-]{section.10}{C\363digo SQL de la base de datos}{}% 27
-\BOOKMARK [2][-]{subsection.10.1}{Tablas}{section.10}% 28
-\BOOKMARK [2][-]{subsection.10.2}{Funciones y Procedures}{section.10}% 29
-\BOOKMARK [2][-]{subsection.10.3}{Triggers}{section.10}% 30
-\BOOKMARK [2][-]{subsection.10.4}{Pruebas}{section.10}% 31
-\BOOKMARK [1][-]{section.11}{Ap\351ndice}{}% 32
-\BOOKMARK [2][-]{subsection.11.1}{Actas de reuni\363n}{section.11}% 33
+\BOOKMARK [1][-]{section.6}{Modelo Conceptual}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{Diagramas de clases UML}{section.6}% 17
+\BOOKMARK [2][-]{subsection.6.2}{Escenarios de prueba}{section.6}% 18
+\BOOKMARK [1][-]{section.7}{Matrices de trazabilidad}{}% 19
+\BOOKMARK [2][-]{subsection.7.1}{Pruebas de aceptaci\363n frente a requisitos}{section.7}% 20
+\BOOKMARK [2][-]{subsection.7.2}{Pruebas de aceptaci\363n frente a escenarios de prueba}{section.7}% 21
+\BOOKMARK [2][-]{subsection.7.3}{Tipos de UML frente a Requisitos}{section.7}% 22
+\BOOKMARK [1][-]{section.8}{Modelos relacionales}{}% 23
+\BOOKMARK [2][-]{subsection.8.1}{3FN Venta}{section.8}% 24
+\BOOKMARK [2][-]{subsection.8.2}{3FN Traspaso - Pedido}{section.8}% 25
+\BOOKMARK [1][-]{section.9}{C\363digo SQL de la base de datos}{}% 26
+\BOOKMARK [2][-]{subsection.9.1}{Tablas}{section.9}% 27
+\BOOKMARK [2][-]{subsection.9.2}{Funciones y Procedures}{section.9}% 28
+\BOOKMARK [2][-]{subsection.9.3}{Triggers}{section.9}% 29
+\BOOKMARK [2][-]{subsection.9.4}{Pruebas}{section.9}% 30
+\BOOKMARK [1][-]{section.10}{Ap\351ndice}{}% 31
+\BOOKMARK [2][-]{subsection.10.1}{Actas de reuni\363n}{section.10}% 32
