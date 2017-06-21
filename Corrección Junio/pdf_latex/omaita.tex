@@ -97,6 +97,10 @@
 
 \newcommand{\requit}[5]{\hrulefill \newline \textbf{#1} - #2 \requisito{#3}{#4}{#5}}
 
+\newcommand{\prueba}[3]{\begin{itemize}
+		\item \textbf{Como} #1 \item \textbf{Quiero} #2 \item \textbf{Para} #3
+\end{itemize}}
+
 \begin{document}
 
 \begin{titlepage}
@@ -320,40 +324,130 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 \subsection{Requisitos funcionales}
 
 \requit{RF-01}{Crear ventas}{empleado}{poder crear y consultar ventas realizadas}{poder así conocer las ganancias de la tienda}
+\textbf{P-RF-01}
+\begin{enumerate}
+	\item Crear una nueva venta con nuevos datos y tener la posibilidad de acceder a los datos de las ventas ya realizadas.
+	\item No se creará la nueva venta si algún dato introducido no es válido.
+\end{enumerate}
 
 \requit{RF-02}{Actualizar stocks tras venta}{propietario de la cadena}{que tras una factura asociada a una venta el stock se actualice}{controlar el stock de manera correcta}
+\textbf{P-RF-02}
+\begin{enumerate}
+	\item Tras realizar una factura el stock se actualiza en función de los parámetros de las ventas asociadas a dicha factura.
+\end{enumerate}
 
 \requit{RF-03}{Crear socios}{empleado}{poder crear socios en una lista y poder consultarla}{llevar así un control sobre estos y saber si se tiene que aplicar o no el descuento.}
+\textbf{P-RF-03}
+\begin{enumerate}
+	\item Crear un socio rellenando un formulario con los datos del cliente en cuestión.
+	\item Poder acceder a la lista de los socios ya realizados.
+	\item No se creará el nuevo socio si algún dato introducido no es válido.
+\end{enumerate}
 
 \requit{RF-04}{Modificar socios}{empleado}{poder modificar la dirección y el email de un socio ya creado}{tener los datos correctos del socio.}
+\textbf{P-RF-04}
+\begin{enumerate}
+	\item Cuando se cambie algún dato de un socio, este se actualizará en la lista de socios.
+	\item o se efectuará la actualización si alguno de los datos introducidos para el cambio no es valido.
+\end{enumerate}
 
 \requit{RF-05}{Eliminar socios}{empleado}{poder eliminar un socio de la base de datos}{dejar de tener almacenados los datos de un cliente que desiste de su derecho de ser socio.}
+\textbf{P-RF-05}
+\begin{enumerate}
+	\item Cuando se elimine un socio, la lista de socios se actualizará de forma de que el socio eliminado ya no aparezca en esta.
+\end{enumerate}
 
 \requit{RF-06}{Crear, modificar y eliminar productos}{empleado}{poder insertar, modificar la descripción, el precio y el IVA de un producto, o eliminar un producto de mi base de datos}{poder así llevar una buena gestión de los productos.}
+\textbf{P-RF-06}
+\begin{enumerate}
+	\item Insertar en la lista de productos un nuevo producto rellenando un formulario con los datos de este, y tras ello se actualizará dicha lista apareciendo en ella el nuevo producto.
+	\item Cuando se cambie algún dato de un producto existente, este se actualizará en la lista de productos.
+	\item Cuando se elimine un producto, la lista de productos se actualizará de forma de que el producto eliminado ya no aparezca en esta.
+	\item Si algunos de los datos introducidos a la hora de insertar o actualizar un producto es incorrecto no se realizará la operación.
+\end{enumerate}
 
 \requit{RF-07}{Crear y modificar stocks}{empleado}{poder crear el stock de un producto y modificar su cantidad}{llevar un control sobre la disponibilidad de los productos según su emplazamiento.}
+\textbf{P-RF-07}
+\begin{enumerate}
+	\item Cuando llegue un producto nuevo a la tienda se creará un stock de este con la cantidad que llegue del mismo.
+	\item Cuando se realice cualquier interacción con un producto de tal forma que modifique la cantidad que existe en la tienda del mismo, se actualizara el stock.
+	\item No se creará el nuevo stock si algún dato introducido no es válido, o si el producto al que se quiere realizar un stock ya posee uno en la tienda en cuestión.
+\end{enumerate}
 
 \requit{RF-08}{Crear, modificar y eliminar proveedores}{propietario de la cadena}{poder insertar, modificar el nombre, el email y el teléfono, o eliminar proveedores en mi base de datos}{conocer los proveedores disponibles y tener sus datos actualizados.}
+\textbf{P-RF-08}
+\begin{enumerate}
+	\item Insertar en la lista de proveedores un nuevo proveedor rellenando un formulario con los datos de este, y tras ello se actualizará dicha lista apareciendo en ella el nuevo proveedor.
+	\item Cuando se cambie algún dato de un proveedor existente, este se actualizará en la lista de proveedores.
+	\item Cuando se elimine un proveedor, la lista de proveedores se actualizará de forma de que el proveedor eliminado ya no aparezca en esta.
+	\item Si algunos de los datos introducidos a la hora de insertar o actualizar un producto es incorrecto no se realizará la operación.
+\end{enumerate}
 
 \requit{RF-09}{Crear pedidos}{empleado}{poder crear pedidos}{tener constancia de todos los pedidos realizados por cada uno de mis emplazamientos}
+\textbf{P-RF-09}
+\begin{enumerate}
+	\item Crear un nuevo pedido con los productos que sean necesario reponer.
+	\item No se podrá realizar un pedido si algún dato introducido no es válido.
+\end{enumerate}
 
 \requit{RF-10}{Actualizar stock tras pedido}{propietario de la cadena}{que tras recibir el albarán que confirma la entrega del pedido el stock se actualice}{controlar correctamente el stock.}
+\textbf{P-RF-10}
+\begin{enumerate}
+	\item Tras recibir el pedido realizado, se actualizará la cantidad del stock de los productos del pedido.
+\end{enumerate}
 
 \requit{RF-11}{Crear solicitud de traspaso}{empleado}{poder crear una solicitud de traspaso}{así poder pedir a otra tienda productos que necesite.}
+\textbf{P-RF-11}
+\begin{enumerate}
+	\item Poder realizar una solicitud de traspaso a otra tienda de un producto que sea necesario y esté disponible en la otra tienda.
+\end{enumerate}
 
 \requit{RF-12}{Crear traspasos}{empleado}{poder crear traspasos}{responder a la necesidad de las solicitudes de traspaso.}
+\textbf{P-RF-12}
+\begin{enumerate}
+	\item Responder a la otra tienda siempre que sea posible cumplir con sus peticiones de solicitud de traspaso, creando en el acto un traspaso con los datos de los productos traspasados.
+\end{enumerate}
 
 \requit{RF-13}{Actualizar stock tras traspaso}{propietario de la cadena}{que cuando se realice un traspaso, se modifiquen de manera correcta los stocks de las tiendas implicadas}{así poder tener una buena gestión sobre nuestros stocks}
+\textbf{P-RF-13}
+\begin{enumerate}
+	\item Cuando un traspaso se realiza de manera correctas ambas tiendas implicadas en el traspaso deberán actualizar la cantidad del stock de los productos implicados en el traspaso.
+\end{enumerate}
 
 \requit{RF-14}{Consultar traspasos}{propietario de la cadena}{poder consultar todos los traspasos realizados por mis emplazamientos}{conocer la movilidad de los productos entre estos.}
+\textbf{P-RF-14}
+\begin{enumerate}
+	\item Siempre se tendrá la posibilidad de acceder a los datos de los traspasos en los que esté implicado mi tienda.
+\end{enumerate}
 
 \requit{RF-15}{Crear y eliminar emplazamientos}{propietario de la cadena}{poder añadir o eliminar emplazamientos en la base de datos}{saber que emplazamientos están en la cadena.}
+\textbf{P-RF-15}
+\begin{enumerate}
+	\item Insertar en la lista de emplazamientos un nuevo emplazamiento rellenando un formulario con los datos de este, y tras ello se actualizará dicha lista apareciendo en ella el nuevo emplazamiento.
+	\item Cuando se elimine un emplazamiento, la lista de emplazamientos se actualizará de forma de que el emplazamiento eliminado ya no aparezca en esta.
+\end{enumerate}
 
 \requit{RF-16}{Modificar emplazamientos}{propietario de la cadena}{poder modificar la dirección y el número de teléfono de un emplazamiento}{tener los datos actualizados de mis emplazamientos.}
+\textbf{P-RF-16}
+\begin{enumerate}
+	\item Cuando se cambie algún dato de un emplazamiento existente, este se actualizará en la lista de emplazamientos.
+	\item Si al modificar algún emplazamiento se introduce algún dato no valido, no se actualizará la lista de emplazamientos.
+\end{enumerate}
 
 \requit{RF-17}{Devolución}{propietario de la cadena}{que cuando se realiza una devolución el campo devuelto de las facturas pase a ser True, y si es necesario que el empleado cree de nuevo toda la venta y la factura pero sin los productos devueltos, esta factura deberá tener el campo devuelto como False}{tener un control sobre las devoluciones.}
+\textbf{P-RF-17}
+\begin{enumerate}
+	\item Tras una devolución se marcará en la factura como que se ha realizado dicha acción modificando el campo correspondiente.
+	\item En el caso de que la devolución solo sea parcial y no total se creara una copia de la factura donde solo aparezcan los productos no devueltos y la antigua se marcara como devuelta.
+	\item En ambos casos se actualizará el stock de los productos devueltos.
+	\item Si se intenta realizar la devolución de una factura, la cual haya excedido el tiempo de devolución, no se realizará dicha devolución.
+\end{enumerate}
 
 \requit{RF-18}{Crear albarán}{empleado}{crear una copia del albarán de entrega que me ha dado el proveedor al traer el pedido que habíamos hecho}{tener la información de los albaranes recogida en la base de datos.}
+\textbf{P-RF-18}
+\begin{enumerate}
+	\item Cuando llegue cualquier pedido se guardará una copia de los albaranes
+\end{enumerate}
 
 
 \subsection{Requisitos no funcionales}
