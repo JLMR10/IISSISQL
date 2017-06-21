@@ -9,12 +9,12 @@
 \contentsline {subsection}{\numberline {3.4}Proceso de creaci\IeC {\'o}n de socios}{}{subsection.3.4}
 \contentsline {section}{\numberline {4}Visi\IeC {\'o}n General del Sistema}{}{section.4}
 \contentsline {subsection}{\numberline {4.1}Descripci\IeC {\'o}n}{}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Historias de usuario}{}{subsection.4.2}
 \contentsline {section}{\numberline {5}Cat\IeC {\'a}logo de requisitos}{}{section.5}
-\contentsline {subsection}{\numberline {5.1}Requisitos de informaci\IeC {\'o}n}{}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Requisitos funcionales}{}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Requisitos no funcionales}{}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Reglas de negocio}{}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.1}Requisitos generales}{}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Requisitos de informaci\IeC {\'o}n}{}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Requisitos funcionales}{}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Requisitos no funcionales}{}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Reglas de negocio}{}{subsection.5.5}
 \contentsline {section}{\numberline {6}Pruebas de aceptaci\IeC {\'o}n}{}{section.6}
 \contentsline {section}{\numberline {7}Modelo Conceptual}{}{section.7}
 \contentsline {subsection}{\numberline {7.1}Diagramas de clases UML}{}{subsection.7.1}

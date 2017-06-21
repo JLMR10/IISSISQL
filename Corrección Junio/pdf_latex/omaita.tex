@@ -229,23 +229,19 @@ El objetivo principal de nuestro cliente es aumentar su clientela con la ayuda d
 \\\\
 Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer más eficiente la gestión de la cadena.
 
-\subsection{Historias de usuario}
-\begin{tabularx}{\textwidth}{|a|X|}
-	\hline \rowcolor{Gray}
-	ID & Historia \\
-	\hline
-	HU-1 & \requisito{trabajador}{conocer las ventas diarias del negocio}{hacer ajustes a las ofertas del mismo} \\ \hline
-	HU-2 & \requisito{propietario de la cadena}{conocer el stock disponible en cada negocio}{organizar los pedidos a proveedores}\\ \hline
-	HU-3 & \requisito{propietario de la cadena}{conocer las ganancias mensuales}{tener un balance mensual} \\ \hline
-	HU-4 & \requisito{cliente}{ver una lista de los productos ofrecidos y disponibles}{realizar mis compras} \\ \hline
-\end{tabularx}
-
 \section{Catálogo de requisitos}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/MapaRequisitos.jpg}
 	\caption{Mapa de requisitos}
 \end{figure}
+
+\subsection{Requisitos generales}
+
+\requit{RG-01}{Gestion ventas}{Propietario de la cadena}{poder gestionar y consultar las ventas de las tiendas}{llevar una buena gestión de ellas}
+\requit{RG-02}{Gestion proveedores}{Propietario de la cadena}{poder gestionar y consultar los pedidos a proveedores}{llevar una buena gestión de ellos}
+\requit{RG-03}{Traspasos}{Propietario de la cadena}{que haya un sistema de traspasos}{poder aprovechar al máximo el stock de las tiendas}
+\requit{RG-04}{Catálogo}{Cliente}{poder ver una lista de los productos ofrecidos y disponibles}{realizar mis compras}
 
 \subsection{Requisitos de información}
 
@@ -670,7 +666,7 @@ varias entidades asociadas a la vez.
 	\item [Emplazamiento] Tiene una relación 1 - n con Pedido, pedido mantiene todos sus atributos de manera directa  en la 3FN, añade un ID\_PEDIDO como primary key y un
 	ID\_PROVEEDOR como foreign key debido a la relación con Proveedor.
 	\item [Pedido] Tiene una relación n - m con Producto, se crea una tabla intermedia debido a esta relación que es la tabla Asociación Pedido-Producto, con los
-	siguientes atributos: cantidad, precioCompra, ivaCompra. Además tiene ID\_PEDIDO y ID\_PRODUCTO como primray keys y foreigns keys, estas claves son provocadas
+	siguientes atributos: cantidad, precioCompra, ivaCompra. Además tiene ID\_PEDIDO y ID\_PRODUCTO como primary keys y foreigns keys, estas claves son provocadas
 	por la relación n - m entre Pedido y Producto.
 	\item[Albarán] Tiene una relación 1 - 0..1 con Pedido, albarán mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_ALBARAN como primary key.
 	\item[Emplazamiento] Tiene una relación 1 - m bidireccional con Traspaso, traspaso mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_TRASPASO.	
