@@ -229,23 +229,19 @@ El objetivo principal de nuestro cliente es aumentar su clientela con la ayuda d
 \\\\
 Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer más eficiente la gestión de la cadena.
 
-\subsection{Historias de usuario}
-\begin{tabularx}{\textwidth}{|a|X|}
-	\hline \rowcolor{Gray}
-	ID & Historia \\
-	\hline
-	HU-1 & \requisito{trabajador}{conocer las ventas diarias del negocio}{hacer ajustes a las ofertas del mismo} \\ \hline
-	HU-2 & \requisito{propietario de la cadena}{conocer el stock disponible en cada negocio}{organizar los pedidos a proveedores}\\ \hline
-	HU-3 & \requisito{propietario de la cadena}{conocer las ganancias mensuales}{tener un balance mensual} \\ \hline
-	HU-4 & \requisito{cliente}{ver una lista de los productos ofrecidos y disponibles}{realizar mis compras} \\ \hline
-\end{tabularx}
-
 \section{Catálogo de requisitos}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/MapaRequisitos.jpg}
 	\caption{Mapa de requisitos}
 \end{figure}
+
+\subsection{Requisitos generales}
+
+\requit{RG-01}{Gestion ventas}{Propietario de la cadena}{poder gestionar y consultar las ventas de las tiendas}{llevar una buena gestión de ellas}
+\requit{RG-02}{Gestion proveedores}{Propietario de la cadena}{poder gestionar y consultar los pedidos a proveedores}{llevar una buena gestión de ellos}
+\requit{RG-03}{Traspasos}{Propietario de la cadena}{que haya un sistema de traspasos}{poder aprovechar al máximo el stock de las tiendas}
+\requit{RG-04}{Catálogo}{Cliente}{poder ver una lista de los productos ofrecidos y disponibles}{realizar mis compras}
 
 \subsection{Requisitos de información}
 
@@ -631,11 +627,31 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 \end{table}
 
 \section{Modelos relacionales}
+Para poder pasar de UML(MC) a 3FN(MR), tenemos que ser capaces de normalizar tanto en 2FN como en 1FN,
+esto lo hemos comprobado de la siguiente manera:
+En cada tupla de la 3FN se le asigna a cada atributo un solo valor del dominio sobre el que está definido, es decir, no existen atributos con
+varios valores. Esto prueba que está en 1FN.
+Tras asegurar la 1FN, pasamos a la comprobación de la 2FN, para validar esta normalización tenemos que tener en cuenta que los atributos que no
+sean Primary Key o Foreign Key (atributos no primos) deben de ser dependientes de estas claves, esto lo cumplimos gracias a las foreign keys y
+primary keys creadas para las asociaciones, esta relación está explicada más adelante.
+Finalmente llegamos a la comprobación de la 3FN, para esta comprobación tenemos que tener en cuenta que la relación tiene que estar en 2FN y que
+la relación de tablas simplemente se haga mediante las primary y las foreign key, todo lo que no sea claves candidatas no puede estar en
+varias entidades asociadas a la vez.
 
-\subsubsection{3FN Venta}
+\subsection{3FN Venta}
 
  \begin{itemize}
- 	\item[label] description
+ 	\item[Socio] Los atributos son directos en la 3FN, añadiendo que DNI será una primray key. Tiene una relación 0..1 - n con Venta, venta mantiene todos sus atributos de manera directa en la 3FN, añadiendo un ID\_VENTA comoprimary key y debido a la relación con socio una foreign key llamada DNI.
+ 	\item[Venta] Tiene una relación n - m con Producto, se crea una tabla intermedia debido a esta relación que es la tabla VentaProducto, con los siguientesatributos: cantidad, precioVenta e ivaVenta. Además tiene ID\_VENTA y ID\_PRODUCTO como primary keys y foreigns keys, estas claves son provocadaspor la relación n - m entre Venta y Producto.
+ 	\item[Producto] La tabla producto mantiene todos sus atributos de manera directa  en la 3FN y añade ID\_PRODUCTO que será su primary key.
+ 	\item[Venta] Tiene una relación 1 - 1 con Factura, factura mantiene todos sus atributos de manera directa  en la 3FN y añade un ID\_FACTURA como primary key, un ID\_VENTA
+ 	como foreign key debido a la relación con Venta y un ID\_EMPLAZAMIENTO debido a la relación con Emplazamiento.
+ 	\item[Factura] tiene una relación n - 1 con Emplazamiento, emplazamiento  mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_EMPLAZAMIENTO como
+ 	primary key.
+ 	\item[Producto] Tiene una relación n - m con Emplazamiento, esto da lugar a la creación de una tabla intermedia, para poder tratar la relación n - m, con
+ 	los siguientes atributos: cantidad, ID\_PRODUCTO(primary key y foreign key) y ID\_EMPLAZAMIENTO(primary key y foreign key). Estas claves son provocadas por
+ 	la relacion n - m entre Producto y Emplazamiento.
+ 	
  \end{itemize}
 
 \begin{figure}[H]
@@ -643,7 +659,27 @@ Con todo esto principalmente lo que se quiere es aumentar los beneficios y hacer
 	\caption{3FN Venta}
 \end{figure}
 
-\subsubsection{3FN Traspaso - Pedido}
+\subsection{3FN Traspaso - Pedido}
+
+\begin{itemize}
+	\item [Proveedor] Tiene una relación 1 - n con Pedido, proveedor mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_PROVEEDOR como primary key.
+	\item [Emplazamiento] Tiene una relación 1 - n con Pedido, pedido mantiene todos sus atributos de manera directa  en la 3FN, añade un ID\_PEDIDO como primary key y un
+	ID\_PROVEEDOR como foreign key debido a la relación con Proveedor.
+	\item [Pedido] Tiene una relación n - m con Producto, se crea una tabla intermedia debido a esta relación que es la tabla Asociación Pedido-Producto, con los
+	siguientes atributos: cantidad, precioCompra, ivaCompra. Además tiene ID\_PEDIDO y ID\_PRODUCTO como primary keys y foreigns keys, estas claves son provocadas
+	por la relación n - m entre Pedido y Producto.
+	\item[Albarán] Tiene una relación 1 - 0..1 con Pedido, albarán mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_ALBARAN como primary key.
+	\item[Emplazamiento] Tiene una relación 1 - m bidireccional con Traspaso, traspaso mantiene todos sus atributos de manera directa en la 3FN y añade un ID\_TRASPASO.	
+	\item[Emplazamiento] Tiene una relación 1 - m bidireccional con Solicitud-Trapaso, solicitud-traspaso mantiene todos sus atributos de manera directa en la 3FN
+	y añade un ID\_Solicitud.
+	\item[Traspaso] Tiene una relación n - m con Producto, esto da lugar a la creación de una tabla intermedia, para poder tratas la relación n-m, con los siguientes
+	atributos: cantidad, ID\_Producto(primary key y foreign key) y ID\_Traspaso(primary key y foreign key). Estas claves son provocadas por la relación n - m
+	entre Traspaso y Producto.
+	\item[Solicitud-Trapaso] Tiene una relación n - m con Producto, esto da lugar a la creación de una tabla intermedia, para poder tratas la relación n-m, con los siguientes
+	atributos: cantidad, ID\_Producto(primary key y foreign key) y ID\_SOLICITUD(primary key y foreign key). Estas claves son provocadas por la relación n - m
+	entre Solicitud-Traspaso y Producto.
+	
+\end{itemize}
 
 \begin{figure}[H]
 	\includegraphics[width=\linewidth]{images/3FN/3FN-traspaso-pedido.png}

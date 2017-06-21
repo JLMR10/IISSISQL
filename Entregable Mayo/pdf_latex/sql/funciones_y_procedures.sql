@@ -103,6 +103,7 @@ END Emplazamiento_Nuevo;
 
 CREATE OR REPLACE PROCEDURE Factura_Nueva(
     p_ID IN FACTURA.ID_FACTURA%TYPE,
+    p_PrecioTotal IN FACTURA.PrecioTotal%TYPE,
     p_FechaDeExpedicion IN FACTURA.FechaDeExpedicion%TYPE,
     p_Devuelto IN FACTURA.Devuelto%TYPE,
     p_ID_Venta IN FACTURA.ID_Venta%TYPE,
@@ -110,7 +111,7 @@ CREATE OR REPLACE PROCEDURE Factura_Nueva(
 )
 IS BEGIN
     INSERT INTO FACTURA VALUES(
-        p_ID, p_FechaDeExpedicion, p_Devuelto, p_ID_Venta,
+        p_ID, p_PrecioTotal, p_FechaDeExpedicion, p_Devuelto, p_ID_Venta,
         p_ID_Emplazamiento);
 END Factura_Nueva;
 
@@ -131,10 +132,11 @@ END PROVEEDOR_Nuevo;
 CREATE OR REPLACE PROCEDURE ALBARAN_Nuevo (
   p_ID_Albaran IN ALBARAN.ID_Albaran%TYPE,
   p_FechaFirma IN ALBARAN.FechaFirma%TYPE,
+  p_PrecioTotal IN ALBARAN.PrecioTotal%TYPE,
   p_ID_Pedido IN ALBARAN.ID_PEDIDO%TYPE
   )IS BEGIN
   INSERT INTO ALBARAN
-  VALUES ( p_ID_Albaran, p_FechaFirma, p_ID_Pedido);
+  VALUES ( p_ID_Albaran, p_FechaFirma, p_PrecioTotal, p_ID_Pedido);
 END ALBARAN_Nuevo;
 
 /
@@ -142,11 +144,12 @@ END ALBARAN_Nuevo;
 CREATE OR REPLACE PROCEDURE PEDIDO_Nuevo (
   p_ID_Pedido IN PEDIDO.ID_Pedido%TYPE,
   p_FechaPedido IN PEDIDO.FechaPedido%TYPE,
+  p_PrecioTotal IN PEDIDO.PrecioTotal%TYPE,
   p_ID_Emplazamiento IN PEDIDO.ID_Emplazamiento%TYPE,
   p_CIF IN PEDIDO.CIF%TYPE
   )IS BEGIN
   INSERT INTO PEDIDO
-  VALUES ( p_ID_Pedido ,p_FechaPedido ,
+  VALUES ( p_ID_Pedido ,p_FechaPedido , p_PrecioTotal ,
            p_ID_Emplazamiento, p_CIF);
 END PEDIDO_Nuevo;
 
@@ -157,12 +160,13 @@ CREATE OR REPLACE PROCEDURE PEDIDO_PRODUCTO_Nuevo (
     p_ID_Pedido IN ASOCIACION_PEDIDO_PRODUCTO.ID_Pedido%TYPE,
     p_Cantidad IN ASOCIACION_PEDIDO_PRODUCTO.Cantidad%TYPE,
     p_PrecioCompra IN ASOCIACION_PEDIDO_PRODUCTO.PrecioCompra%TYPE,
-    p_IVA IN ASOCIACION_PEDIDO_PRODUCTO.IVA%TYPE)IS
+    p_IVA IN ASOCIACION_PEDIDO_PRODUCTO.IVA%TYPE,
+    p_PrecioLinea IN ASOCIACION_PEDIDO_PRODUCTO.preciolinea%TYPE)IS
     BEGIN
 
     INSERT INTO ASOCIACION_PEDIDO_PRODUCTO
     VALUES (p_ID_Producto, p_ID_Pedido , p_Cantidad , p_PrecioCompra,
-            p_IVA);
+            p_IVA, p_PrecioLinea);
 END PEDIDO_PRODUCTO_Nuevo;
 
 /
@@ -170,11 +174,12 @@ END PEDIDO_PRODUCTO_Nuevo;
 
 CREATE OR REPLACE PROCEDURE Venta_Nueva(
   P_ID_Venta IN VENTA.ID_Venta%TYPE,
+  P_PrecioTotal IN VENTA.PrecioTotal%TYPE,
   P_FechaVenta IN VENTA.FechaVenta%TYPE,
   P_DNI IN VENTA.DNI%TYPE)
   IS BEGIN
   INSERT INTO VENTA
-    VALUES(P_ID_Venta, P_FechaVenta, P_DNI);
+    VALUES(P_ID_Venta, P_PrecioTotal, P_FechaVenta, P_DNI);
 END Venta_Nueva;
 
 /
@@ -184,12 +189,13 @@ CREATE OR REPLACE PROCEDURE VENTA_PRODUCTO_Nueva(
     P_ID_Producto IN ASOCIACION_VENTA_PRODUCTO.ID_Producto%TYPE,
     P_Cantidad IN ASOCIACION_VENTA_PRODUCTO.Cantidad%TYPE,
     P_PrecioVenta IN ASOCIACION_VENTA_PRODUCTO.PrecioVenta%TYPE,
-    P_IvaVenta IN ASOCIACION_VENTA_PRODUCTO.IvaVenta%TYPE
+    P_IvaVenta IN ASOCIACION_VENTA_PRODUCTO.IvaVenta%TYPE,
+    P_PrecioLinea IN ASOCIACION_VENTA_PRODUCTO.PrecioLinea%TYPE
     )
     IS
     BEGIN
     INSERT INTO ASOCIACION_VENTA_PRODUCTO
-        VALUES(P_ID_Venta, P_ID_Producto,P_Cantidad,P_PrecioVenta,P_IvaVenta);
+        VALUES(P_ID_Venta, P_ID_Producto,P_Cantidad,P_PrecioVenta,P_IvaVenta,P_PrecioLinea);
 END VENTA_PRODUCTO_Nueva;
 
 /
@@ -343,16 +349,8 @@ END ELIMINA_SOCIO;
 
 /
 
-CREATE OR REPLACE PROCEDURE ELIMINA_A_VENTA(e_ID_Producto IN Producto.ID_PRODUCTO%TYPE,e_ID_VENTA IN VENTA.ID_VENTA%TYPE)
-  IS BEGIN
-  DELETE FROM ASOCIACION_VENTA_PRODUCTO WHERE ID_PRODUCTO = e_ID_Producto AND ID_VENTA = e_ID_VENTA;
-END ELIMINA_A_VENTA;
-
-/
-
-
 /*FUNCIONES*/
-/* Esta abajo con menos parametros
+
 CREATE OR REPLACE FUNCTION precio_A_Venta_producto
 (f_ID_Venta IN ASOCIACION_VENTA_PRODUCTO.ID_Venta%TYPE,
 f_Cantidad IN ASOCIACION_VENTA_PRODUCTO.Cantidad%TYPE,
@@ -364,8 +362,7 @@ RETURN(f_PrecioLinea);
 END precio_A_Venta_producto;
 
 /
-*/
-/*
+
 CREATE OR REPLACE FUNCTION precio_Venta
 (f_ID_Venta IN VENTA.ID_Venta%TYPE)
 RETURN NUMBER is f_PrecioTotal VENTA.PRECIOTOTAL%TYPE;
@@ -376,8 +373,7 @@ RETURN(f_PrecioTotal);
 END precio_Venta;
 
 /
-*/
-/* Esta abajo con menos parametros
+
 CREATE OR REPLACE FUNCTION precio_A_Pedido_producto
 (f_ID_Pedido IN ASOCIACION_PEDIDO_PRODUCTO.ID_Pedido%TYPE,
 f_Cantidad IN ASOCIACION_PEDIDO_PRODUCTO.Cantidad%TYPE,
@@ -389,8 +385,7 @@ RETURN(f_PrecioLinea);
 END precio_A_Pedido_producto;
 
 /
-*/
-/*
+
 CREATE OR REPLACE FUNCTION precio_Pedido
 (f_ID_Pedido IN PEDIDO.ID_Pedido%TYPE)
 RETURN NUMBER is f_PrecioTotal PEDIDO.PRECIOTOTAL%TYPE;
@@ -401,128 +396,16 @@ RETURN(f_PrecioTotal);
 END precio_Pedido;
 
 /
-*/
 
-CREATE OR REPLACE FUNCTION precioLinea_Aso_Pedido
-(f_ID_PRODUCTO IN ASOCIACION_PEDIDO_PRODUCTO.ID_PRODUCTO%TYPE,f_ID_PEDIDO IN ASOCIACION_PEDIDO_PRODUCTO.ID_PEDIDO%TYPE)
-RETURN NUMBER is f_PrecioLinea ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
-f_Cantidad ASOCIACION_PEDIDO_PRODUCTO.CANTIDAD%TYPE;
-f_PrecioCompra ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
-BEGIN
-select Cantidad into f_Cantidad from ASOCIACION_PEDIDO_PRODUCTO where ID_Pedido = f_ID_PEDIDO AND ID_PRODUCTO = f_ID_PRODUCTO;
-select PrecioCompra into f_PrecioCompra from ASOCIACION_PEDIDO_PRODUCTO where ID_Pedido = f_ID_PEDIDO AND ID_PRODUCTO = f_ID_PRODUCTO;
-f_PrecioLinea := f_Cantidad * f_PrecioCompra;
-RETURN(f_PrecioLinea);
-END precioLinea_Aso_Pedido;
-
-/
-
-CREATE OR REPLACE FUNCTION precioLinea_Aso_Venta
-(f_ID_PRODUCTO IN ASOCIACION_VENTA_PRODUCTO.ID_PRODUCTO%TYPE,f_ID_VENTA IN ASOCIACION_VENTA_PRODUCTO.ID_VENTA%TYPE)
-RETURN NUMBER is f_PrecioLinea ASOCIACION_VENTA_PRODUCTO.PRECIOVENTA%TYPE;
-f_Cantidad ASOCIACION_VENTA_PRODUCTO.CANTIDAD%TYPE;
-f_PrecioVenta ASOCIACION_VENTA_PRODUCTO.PRECIOVENTA%TYPE;
-BEGIN
-select Cantidad into f_Cantidad from ASOCIACION_VENTA_PRODUCTO where ID_VENTA = f_ID_VENTA AND ID_PRODUCTO = f_ID_PRODUCTO;
-select PrecioVenta into f_PrecioVenta from ASOCIACION_VENTA_PRODUCTO where ID_VENTA = f_ID_VENTA AND ID_PRODUCTO = f_ID_PRODUCTO;
-f_PrecioLinea := f_Cantidad * f_PrecioVenta;
-RETURN(f_PrecioLinea);
-END precioLinea_Aso_Venta;
-
-/
-
-CREATE OR REPLACE FUNCTION precioTotal_Venta
-(f_ID_VENTA IN ASOCIACION_VENTA_PRODUCTO.ID_VENTA%TYPE)
-RETURN NUMBER is f_precioTotal ASOCIACION_VENTA_PRODUCTO.PRECIOVENTA%TYPE;
-precio_AUX ASOCIACION_VENTA_PRODUCTO.PRECIOVENTA%TYPE;
-
-CURSOR all_prods
- IS
- SELECT id_venta,id_producto,cantidad
- FROM ASOCIACION_VENTA_PRODUCTO
- ORDER BY ID_producto;
- 
- m_id_venta ASOCIACION_VENTA_PRODUCTO.id_venta%TYPE;
- m_id_producto Producto.id_producto%type;
- m_cantidad ASOCIACION_VENTA_PRODUCTO.cantidad%TYPE;
-BEGIN
-  f_precioTotal := 0;
-  OPEN all_prods;
-  LOOP
-    Fetch all_prods INTO m_id_venta,m_id_producto,m_cantidad;
-    EXIT WHEN all_prods%NOTFOUND;
-    if m_id_venta = f_id_venta
-    THEN
-    select precioVenta into precio_AUX from asociacion_venta_producto where id_venta = m_id_venta and id_producto=m_id_producto;
-    
-    f_precioTotal := (precio_AUX*m_cantidad) + f_precioTotal;
-    END IF;
-  END LOOP;
-  CLOSE all_prods;
-RETURN(f_PrecioTotal);
-END precioTotal_Venta;
-
-/
-
-CREATE OR REPLACE FUNCTION precioTotal_Factura
-(f_ID_VENTA IN ASOCIACION_VENTA_PRODUCTO.ID_VENTA%TYPE)
-RETURN NUMBER is f_precioTotal number(8,2);
-precio_AUX ASOCIACION_VENTA_PRODUCTO.PRECIOVENTA%TYPE;
-socio varchar2(9);
-BEGIN
- select precioTotal_Venta(f_ID_VENTA) into precio_AUX from dual;
- select dni into socio from venta where id_Venta = f_id_Venta;
- f_precioTotal := precio_AUX;
- if socio is not null 
- then
- f_precioTotal := f_precioTotal * 0.95;
- END IF;
-RETURN(f_PrecioTotal);
-END precioTotal_Factura;
-
-/
-
-CREATE OR REPLACE FUNCTION precioTotal_Albaran
-(f_ID_PEDIDO IN ASOCIACION_PEDIDO_PRODUCTO.ID_PEDIDO%TYPE)
-RETURN NUMBER is f_precioTotal number(8,2);
-precio_AUX ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
-BEGIN
- select precioTotal_Venta(f_ID_VENTA) into precio_AUX from dual;
- f_precioTotal := precio_AUX;
-RETURN(f_PrecioTotal);
-END precioTotal_Factura;
-
-/
-
-CREATE OR REPLACE FUNCTION precioTotal_PEDIDO
-(f_ID_PEDIDO IN ASOCIACION_PEDIDO_PRODUCTO.ID_PEDIDO%TYPE)
-RETURN NUMBER is f_precioTotal ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
-precio_AUX ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
-
-CURSOR all_prods
- IS
- SELECT id_pedido,id_producto,cantidad
- FROM ASOCIACION_PEDIDO_PRODUCTO
- ORDER BY ID_producto;
- 
- m_id_pedido ASOCIACION_PEDIDO_PRODUCTO.id_pedido%TYPE;
- m_id_producto Producto.id_producto%type;
- m_cantidad ASOCIACION_PEDIDO_PRODUCTO.cantidad%TYPE;
-BEGIN
-  f_precioTotal := 0;
-  OPEN all_prods;
-  LOOP
-    Fetch all_prods INTO m_id_pedido,m_id_producto,m_cantidad;
-    EXIT WHEN all_prods%NOTFOUND;
-    if m_id_pedido = f_id_pedido
-    THEN
-    select precioCompra into precio_AUX from ASOCIACION_PEDIDO_PRODUCTO where id_pedido = m_id_pedido and id_producto=m_id_producto;
-    
-    f_precioTotal := (precio_AUX*m_cantidad) + f_precioTotal;
-    END IF;
-  END LOOP;
-  CLOSE all_prods;
-RETURN(f_PrecioTotal);
-END precioTotal_Pedido;
+CREATE OR REPLACE FUNCTION ganancias_mensuales(fechainicio IN factura.fechadeexpedicion%TYPE,fechafin IN factura.fechadeexpedicion%TYPE )
+return number is f_preciototal factura.preciototal%TYPE;
+v_preciototal factura.preciototal%TYPE;
+p_preciototal albaran.preciototal%TYPE;
+begin
+select sum(preciototal) into v_preciototal from factura where fechadeexpedicion between fechainicio and fechafin;
+select sum(preciototal) into p_preciototal from albaran where fechafirma between fechainicio and fechafin;
+f_preciototal := v_preciototal - p_preciototal;
+return (f_preciototal);
+end ganancias_mensuales;
 
 /
