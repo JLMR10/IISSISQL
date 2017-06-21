@@ -1,0 +1,35 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{3}{section.1}
+\contentsline {section}{\numberline {2}Glosario de T\IeC {\'e}rminos}{3}{section.2}
+\contentsline {section}{\numberline {3}Modelo de negocio}{}{section.3}
+\contentsline {subsection}{\numberline {3.1}Proceso de venta}{}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Proceso de compra al proveedor}{}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Proceso de disponibilidad}{}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Proceso de creaci\IeC {\'o}n de socios}{}{subsection.3.4}
+\contentsline {section}{\numberline {4}Visi\IeC {\'o}n General del Sistema}{}{section.4}
+\contentsline {subsection}{\numberline {4.1}Descripci\IeC {\'o}n}{}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Historias de usuario}{}{subsection.4.2}
+\contentsline {section}{\numberline {5}Cat\IeC {\'a}logo de requisitos}{}{section.5}
+\contentsline {subsection}{\numberline {5.1}Requisitos de informaci\IeC {\'o}n}{}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Requisitos funcionales}{}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Requisitos no funcionales}{}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Reglas de negocio}{}{subsection.5.4}
+\contentsline {section}{\numberline {6}Pruebas de aceptaci\IeC {\'o}n}{}{section.6}
+\contentsline {section}{\numberline {7}Modelo Conceptual}{}{section.7}
+\contentsline {subsection}{\numberline {7.1}Diagramas de clases UML}{}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Escenarios de prueba}{}{subsection.7.2}
+\contentsline {section}{\numberline {8}Matrices de trazabilidad}{}{section.8}
+\contentsline {subsection}{\numberline {8.1}Pruebas de aceptaci\IeC {\'o}n frente a requisitos}{}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}Pruebas de aceptaci\IeC {\'o}n frente a escenarios de prueba}{}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Tipos de UML frente a Requisitos}{}{subsection.8.3}
+\contentsline {section}{\numberline {9}Modelos relacionales}{}{section.9}
+\contentsline {subsection}{\numberline {9.1}3FN Venta}{}{subsection.9.1}
+\contentsline {subsection}{\numberline {9.2}3FN Traspaso - Pedido}{}{subsection.9.2}
+\contentsline {section}{\numberline {10}C\IeC {\'o}digo SQL de la base de datos}{}{section.10}
+\contentsline {subsection}{\numberline {10.1}Tablas}{}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Funciones y Procedures}{}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}Triggers}{}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}Pruebas}{}{subsection.10.4}
+\contentsline {section}{\numberline {11}Ap\IeC {\'e}ndice}{}{section.11}
+\contentsline {subsection}{\numberline {11.1}Actas de reuni\IeC {\'o}n}{}{subsection.11.1}
