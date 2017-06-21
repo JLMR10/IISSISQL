@@ -282,7 +282,7 @@ before update on factura
 for each row 
 begin 
   if(sysdate - :old.fechadeexpedicion)>30 then 
-  raise_application_error(-20601, :NEW.fechadeexpedicion || 'No se permite la devolución, han pasado más de 30 días');
+  raise_application_error(-20601, :NEW.fechadeexpedicion || 'No se permite la devolucion, han pasado mas de 30 dias');
   END IF;
 END devolucion;
 /

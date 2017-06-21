@@ -377,7 +377,7 @@ END precio_Venta;
 
 /
 */
-/* Esta abajo con menos para metros
+/* Esta abajo con menos parametros
 CREATE OR REPLACE FUNCTION precio_A_Pedido_producto
 (f_ID_Pedido IN ASOCIACION_PEDIDO_PRODUCTO.ID_Pedido%TYPE,
 f_Cantidad IN ASOCIACION_PEDIDO_PRODUCTO.Cantidad%TYPE,
@@ -477,6 +477,18 @@ BEGIN
  then
  f_precioTotal := f_precioTotal * 0.95;
  END IF;
+RETURN(f_PrecioTotal);
+END precioTotal_Factura;
+
+/
+
+CREATE OR REPLACE FUNCTION precioTotal_Albaran
+(f_ID_PEDIDO IN ASOCIACION_PEDIDO_PRODUCTO.ID_PEDIDO%TYPE)
+RETURN NUMBER is f_precioTotal number(8,2);
+precio_AUX ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
+BEGIN
+ select precioTotal_Venta(f_ID_VENTA) into precio_AUX from dual;
+ f_precioTotal := precio_AUX;
 RETURN(f_PrecioTotal);
 END precioTotal_Factura;
 

@@ -204,27 +204,33 @@ END PRUEBAS_A_PRODUCTO_TRASPASO;
 
 CREATE OR REPLACE PACKAGE PRUEBAS_A_PEDIDO_PRODUCTO AS
     PROCEDURE inicializar;
-    /*PROCEDURE insertar
+    PROCEDURE insertar
         (nombre_prueba VARCHAR2, i_id_pedido INT, i_id_producto INT,
         i_cantidad NUMBER, i_precioCompra number, i_iva INT,
-        salidaEsperada BOOLEAN);*/
+        salidaEsperada BOOLEAN);
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_pedido INT, e_id_producto INT,
         salidaEsperada BOOLEAN);
 END PRUEBAS_A_PEDIDO_PRODUCTO;
 
 /
-/*
+
 CREATE OR REPLACE PACKAGE PRUEBAS_FUNCIONES AS
-    PROCEDURE ganancias
-        (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN);
     PROCEDURE precioLinea_A_Pedido
         (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN);
     PROCEDURE precioLinea_A_Venta
         (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_VENTA NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precio_Venta
+        (nombre_prueba VARCHAR2, ID_Venta NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precio_Factura
+        (nombre_prueba VARCHAR2, ID_Venta NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precio_Pedido
+        (nombre_prueba VARCHAR2, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN);
+    PROCEDURE precio_Albaran
+        (nombre_prueba VARCHAR2, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN);
 END PRUEBAS_FUNCIONES;
 /
-*/
+
 /* CUERPOS DE PRUEBAS */
 
 CREATE OR REPLACE PACKAGE BODY PRUEBAS_SOCIO AS
@@ -1143,7 +1149,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
     BEGIN
         DELETE FROM asociacion_Pedido_Producto;
     END inicializar;
-  /*
+  
     PROCEDURE insertar
       (nombre_prueba VARCHAR2, i_id_pedido INT, i_id_producto INT,
       i_cantidad NUMBER, i_precioCompra number, i_iva INT,
@@ -1151,7 +1157,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
     salida BOOLEAN := true;
     actual asociacion_Pedido_Producto%ROWTYPE;
     BEGIN
-        INSERT INTO asociacion_Pedido_Producto VALUES(i_id_pedido, i_id_producto, i_cantidad, i_precioCompra, i_iva,);
+        INSERT INTO asociacion_Pedido_Producto VALUES(i_id_pedido, i_id_producto, i_cantidad, i_precioCompra, i_iva);
 
         SELECT * INTO actual FROM asociacion_Pedido_Producto WHERE ID_pedido = i_id_pedido and ID_producto = i_id_producto;
 
@@ -1166,7 +1172,7 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_A_PEDIDO_PRODUCTO AS
             PRINTR(nombre_prueba, false, salidaEsperada);
             ROLLBACK;
     END insertar;
-    */
+    
     PROCEDURE eliminar
         (nombre_prueba VARCHAR2, e_id_pedido INT, e_id_producto INT,
         salidaEsperada BOOLEAN) AS
@@ -1246,26 +1252,8 @@ END PRUEBAS_A_VENTA_PRODUCTO;
 /
 
 
-/*
+
 CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
-  PROCEDURE ganancias
-    (nombre_prueba VARCHAR2, mes NUMBER, anyo NUMBER, esperado number, salidaEsperada BOOLEAN) AS
-    salida BOOLEAN := true;
-    ganancia number;
-    BEGIN
-        SELECT ganancias_mensuales(mes,anyo) INTO ganancia FROM dual;
-
-        IF (ganancia<>esperado) THEN
-            salida := false;
-        END IF;
-
-        PRINTR(nombre_prueba, salida, salidaEsperada);
-
-        EXCEPTION
-        WHEN OTHERS THEN
-            PRINTR(nombre_prueba, false, salidaEsperada);
-            ROLLBACK;
-    END ganancias;
     
     PROCEDURE precioLinea_A_Pedido
     (nombre_prueba VARCHAR2, ID_PRODUCTO NUMBER, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN) AS
@@ -1305,9 +1293,84 @@ CREATE OR REPLACE PACKAGE BODY PRUEBAS_FUNCIONES AS
             ROLLBACK;
     END PRECIOLINEA_A_VENTA;
     
+    PROCEDURE PRECIO_VENTA
+        (nombre_prueba VARCHAR2, ID_Venta NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+        salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioTotal_Venta(ID_VENTA) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END PRECIO_VENTA;
+    
+    PROCEDURE precio_Factura
+        (nombre_prueba VARCHAR2, ID_Venta NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+        salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioTotal_Factura(ID_VENTA) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END precio_Factura;
+    
+    PROCEDURE precio_Pedido
+        (nombre_prueba VARCHAR2, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+        salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioTotal_Pedido(ID_PEDIDO) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END precio_Pedido;
+    
+    PROCEDURE precio_Albaran
+        (nombre_prueba VARCHAR2, ID_PEDIDO NUMBER, esperado number, salidaEsperada BOOLEAN) AS
+        salida BOOLEAN := true;
+    precio number;
+    BEGIN
+        SELECT precioTotal_Albaran(ID_PEDIDO) INTO precio FROM dual;
+
+        IF (precio<>esperado) THEN
+            salida := false;
+        END IF;
+
+        PRINTR(nombre_prueba, salida, salidaEsperada);
+
+        EXCEPTION
+        WHEN OTHERS THEN
+            PRINTR(nombre_prueba, false, salidaEsperada);
+            ROLLBACK;
+    END precio_Albaran;
+    
 END PRUEBAS_FUNCIONES;
 /
-*/
 DROP SEQUENCE S_ID_Producto;
 DROP SEQUENCE S_ID_Traspaso;
 DROP SEQUENCE S_ID_Solicitud;
@@ -1474,16 +1537,32 @@ EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.insertar('A-Producto-Traspaso Insertar', S_I
 EXECUTE PRUEBA_STOCK.STOCK_CORRECTO_T('Actualizacion de stock tras traspaso',s_ID_emplazamiento.currval-1, s_ID_emplazamiento.currval-2,33,29,4,s_ID_producto.currval-1,true);
 EXECUTE PRUEBAS_A_PRODUCTO_TRASPASO.eliminar('A-Producto-Traspaso Eliminar', S_ID_traspaso.currval-1, S_ID_Producto.currval-1, true);
 --Pruebas de funciones
-/*
-EXECUTE PRUEBAS_FUNCIONES.ganancias('Funcion Ganancias mensuales',6,2017,-1008.87,true);
+
+
 EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Pedido('Funcion precio linea aso-pedido',9,2,220.5,true);
 EXECUTE PRUEBAS_FUNCIONES.precioLinea_A_Venta('Funcion precio linea aso-venta',9,2,93.9,true);
-*/
---Tiene que dar -1008.87
---select ganancias_mensuales(6,2017) from dual;
+EXECUTE PRUEBAS_FUNCIONES.precio_Venta('Funcion calculo precio total venta',1,31.5,true);
+EXECUTE PRUEBAS_FUNCIONES.precio_Factura('Funcion calculo precio total factura con socio',1,29.93,true);
+EXECUTE PRUEBAS_FUNCIONES.precio_Factura('Funcion calculo precio total factura sin socio',2,125.4,true);
+EXECUTE PRUEBAS_FUNCIONES.precio_Pedido('Funcion calculo precio total pedido',2,220.5,true);
+EXECUTE PRUEBAS_FUNCIONES.precio_Albaran('Funcion calculo precio total albaran',2,220.5,true);
 -- Tiene que dar 220.5
 --SELECT precioLinea_Aso_Pedido(9,2) FROM DUAL;
+
+-- Tiene que dar 220.5
+--select preciototal_pedido(2) from dual;
+
+-- Tiene que dar 220.5
+--select preciototal_albaran(2) from dual;
+
+-- Tiene que dar 31.5
+--select preciototal_venta(2) from dual;
+
+-- Tiene que dar 31.5*0.95 = 29.93
+--select preciototal_factura(1) from dual;
+
 --Tienda que dar 93.9
 --SELECT precioLinea_Aso_Venta(9,2) FROM DUAL;
+
 -- Select que muestra los productos ofrecidos y disponibles
 --SELECT nombre,id_emplazamiento from producto inner join stock on stock.ID_PRODUCTO = producto.id_producto;
