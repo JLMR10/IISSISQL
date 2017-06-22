@@ -487,10 +487,10 @@ CREATE OR REPLACE FUNCTION precioTotal_Albaran
 RETURN NUMBER is f_precioTotal number(8,2);
 precio_AUX ASOCIACION_PEDIDO_PRODUCTO.PRECIOCOMPRA%TYPE;
 BEGIN
- select precioTotal_Venta(f_ID_VENTA) into precio_AUX from dual;
+ select precioTotal_Pedido(f_ID_PEDIDO) into precio_AUX from dual;
  f_precioTotal := precio_AUX;
 RETURN(f_PrecioTotal);
-END precioTotal_Factura;
+END precioTotal_Albaran;
 
 /
 

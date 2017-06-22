@@ -1,5 +1,5 @@
 /* TRIGGERS */
-
+/*
 CREATE OR REPLACE TRIGGER descuento_socio
   BEFORE INSERT ON factura
   FOR EACH ROW
@@ -17,6 +17,7 @@ BEGIN
 END;
 
 /
+*/
 /*
 CREATE OR REPLACE TRIGGER stock_minimo
   AFTER INSERT OR UPDATE ON stock
@@ -34,7 +35,6 @@ CREATE OR REPLACE TRIGGER Inicializa_nueva_Venta
 BEFORE INSERT ON VENTA
 FOR EACH ROW
 BEGIN
-:NEW.PrecioTotal := 0;
 :NEW.FechaVenta := SYSDATE;
 END Comprueba_Venta;
 
@@ -44,7 +44,6 @@ CREATE OR REPLACE TRIGGER Inicializa_nuevo_Pedido
 BEFORE INSERT ON PEDIDO
 FOR EACH ROW
 BEGIN
-:NEW.PrecioTotal := 0;
 :NEW.FechaPedido := SYSDATE;
 END Comprueba_Pedido;
 
@@ -104,6 +103,7 @@ END inicializa_preciolinea_alv;
 
 /
 */
+/*
 CREATE OR REPLACE TRIGGER inicializa_preciototal_venta
   BEFORE INSERT OR UPDATE ON ASOCIACION_VENTA_PRODUCTO
   for each row
@@ -113,7 +113,7 @@ END inicializa_preciototal_venta;
 
 /
 
-
+*/
 CREATE OR REPLACE TRIGGER modifica_stock_pedido
 BEFORE INSERT OR UPDATE ON ALBARAN
 FOR EACH ROW
@@ -170,7 +170,6 @@ CREATE OR REPLACE TRIGGER Inicializa_Nuevo_Pedido
 BEFORE INSERT ON Pedido
 FOR EACH ROW
 BEGIN
-:NEW.PrecioTotal := 0;
 :NEW.FechaPedido := SYSDATE;
 END Inicializa_Nuevo_Pedido;
 
@@ -220,6 +219,7 @@ create or replace TRIGGER inicializa_preciolinea_alp
 END inicializa_preciolinea_alp;
 /
 */
+/*
 create or replace TRIGGER inicializa_preciototal_albaran
   BEFORE INSERT OR UPDATE ON Albaran
   for each row
@@ -231,7 +231,8 @@ create or replace TRIGGER inicializa_preciototal_albaran
 END inicializa_preciototal_albaran;
 
 /
-
+*/
+/*
 create or replace TRIGGER inicializa_preciototal_pedido
   BEFORE INSERT OR UPDATE ON ASOCIACION_pedido_producto
   for each row
@@ -240,6 +241,7 @@ create or replace TRIGGER inicializa_preciototal_pedido
 END inicializa_preciototal_pedido;
 
 /
+*/
 
 create or replace trigger inicializa_precioventa_apv
   before insert on asociacion_venta_producto
