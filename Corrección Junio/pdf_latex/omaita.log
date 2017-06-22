@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.4.19)  21 JUN 2017 18:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Arch Linux) (preloaded format=pdflatex 2017.4.19)  22 JUN 2017 19:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1008,6 +1008,9 @@ LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 29.
 LaTeX Info: Redefining \% on input line 29.
+
+
+LaTeX Warning: Label `Escenarios' multiply defined.
 
 
 LaTeX Warning: Label `Escenarios' multiply defined.
@@ -3347,35 +3350,35 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 819.
  (./sql/triggers.sql
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 49.
+(babel)             in language  on input line 50.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.49 END 
-         Comprueba_Pedido; [50]
+l.50 /
+       [50]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 122.
 Package babel Info: Redefining spanish shorthand >>
@@ -3407,35 +3410,35 @@ een already used, duplicate ignored
 l.122 p_ID_PEDIDO 
                   PEDIDO.ID_PEDIDO%TYPE; [51]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 194.
+(babel)             in language  on input line 195.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.194 END 
-          Inicializa_Nuevo_Traspaso; [52]
+l.195 /
+        [52]
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 268.
 Package babel Info: Redefining spanish shorthand >>
@@ -3464,8 +3467,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.268 create 
-             or replace trigger inicializa_IVA_APP [53])
+l.268 /
+        [53])
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 823.
 Package babel Info: Redefining spanish shorthand >>
@@ -3480,668 +3483,667 @@ Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 823.
  (./sql/pruebas.sql
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 17.
+(babel)             in language  on input line 15.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.17  
-         DBMS_OUTPUT.put_line(nombre_prueba || ':' || EQUALS(salida, salidaE...
-[54]
+l.15  
+                                         salidaEsperada BOOLEAN) [54]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 92.
+(babel)             in language  on input line 90.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92  
-             (nombre_prueba VARCHAR2, a_id_producto INT , a_descripcion VARC...
+l.90  
+             i_categoria VARCHAR2, i_precioProducto INT, i_iva INT, salidaEs...
 [55]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 166.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.168  
-              a_cantidad INT, salidaEsperada BOOLEAN); [56]
+l.166  
+          PROCEDURE actualizar [56]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 240.
+(babel)             in language  on input line 238.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.240  
-              DELETE FROM SOCIO; [57]
+l.238  
+          PROCEDURE inicializar AS [57]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 315.
+(babel)             in language  on input line 313.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.315  
-          PROCEDURE inicializar AS [58]
+l.313 CREATE 
+             OR REPLACE PACKAGE BODY PRUEBAS_PROVEEDOR AS [58]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 390.
+(babel)             in language  on input line 388.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.390 CREATE 
-             OR REPLACE PACKAGE BODY PRUEBAS_EMPLAZAMIENTO AS [59]
+l.388 /
+        [59]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 464.
+(babel)             in language  on input line 462.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.464  
-          END eliminar; [60]
+l.462  
+                      PRINTR(nombre_prueba, false, salidaEsperada); [60]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 538.
+(babel)             in language  on input line 536.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.538  
-                  EXCEPTION [61]
+l.536  
+                  PRINTR(nombre_prueba, salida, salidaEsperada); [61]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 613.
+(babel)             in language  on input line 611.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.613  
-                  EXCEPTION [62]
+l.611  
+                  PRINTR(nombre_prueba, salida, salidaEsperada); [62]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 684.
+(babel)             in language  on input line 682.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.684  
-                  PRINTR(nombre_prueba, salida, salidaEsperada); [63]
+l.682  
+                  END IF; [63]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 753.
+(babel)             in language  on input line 751.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.753 CREATE 
-             OR REPLACE PACKAGE BODY PRUEBAS_VENTA AS [64]
+l.751 /
+        [64]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 829.
+(babel)             in language  on input line 828.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.829  
-          BEGIN [65]
+l.828  
+          PROCEDURE inicializar AS [65]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 903.
+(babel)             in language  on input line 901.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.903  
-              PRINTR(nombre_prueba, salida, salidaEsperada); [66]
+l.901  
+              END IF; [66]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 977.
+(babel)             in language  on input line 975.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.977  
-                  PRINTR(nombre_prueba, salida, salidaEsperada); [67]
+l.975  
+                  END IF; [67]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1054.
+(babel)             in language  on input line 1052.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1054  
-           BEGIN [68]
+l.1052  
+           salida BOOLEAN := true; [68]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1125.
+(babel)             in language  on input line 1123.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1125  
-               salida BOOLEAN := true; [69]
+l.1123  
+           PROCEDURE eliminar [69]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1195.
+(babel)             in language  on input line 1193.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1195  
-           END eliminar; [70]
+l.1193  
+                       PRINTR(nombre_prueba, false, salidaEsperada); [70]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1266.
+(babel)             in language  on input line 1265.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1266  
-                   salida := false; [71]
+l.1265  
+               IF (precio<>esperado) THEN [71]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1342.
+(babel)             in language  on input line 1341.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1342  
-                   salida := false; [72]
+l.1341  
+               IF (precio<>esperado) THEN [72]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1416.
+(babel)             in language  on input line 1414.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1416 --
-         PROVEEDOR [73]
+l.1414 EXECUTE 
+               PRUEBAS_SOCIO.eliminar('Socio Eliminar', '54148787G', true);
+[73]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1465.
+(babel)             in language  on input line 1462.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1465 EXECUTE 
-               pruebas_venta.insertar('Venta insercion',sysdate,null,true);
-[74]
+l.1462 EXECUTE 
+               pruebas_venta.inicializar(); [74]
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand <<
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand >>
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "=
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "~
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "!
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 Package babel Info: Redefining spanish shorthand "?
-(babel)             in language  on input line 1519.
+(babel)             in language  on input line 1518.
 pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1519 EXECUTE 
-               PRUEBAS_SOLICITUD_TRASPASO.insertar('Solicitud traspaso Inser...
+l.1518 EXECUTE 
+               PRUEBAS_SOLICITUD_TRASPASO.eliminar('Solicitud traspaso Elimi...
 [75])
 Package babel Info: Redefining spanish shorthand <<
 (babel)             in language  on input line 826.
@@ -4167,7 +4169,7 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 827.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 827.
- <images/acta1.jpg, id=3199, 542.025pt x 963.6pt>
+ <images/acta1.jpg, id=3200, 542.025pt x 963.6pt>
 File: images/acta1.jpg Graphic file (type jpg)
  <use images/acta1.jpg>
 Package pdftex.def Info: images/acta1.jpg used on input line 828.
@@ -4237,7 +4239,7 @@ een already used, duplicate ignored
                    \relax 
 l.828 ...=16cm, center]{images/acta1.jpg} \newpage
                                                    [77 <./images/acta1.jpg>]
-<images/acta2.jpg, id=3258, 542.025pt x 963.6pt>
+<images/acta2.jpg, id=3260, 542.025pt x 963.6pt>
 File: images/acta2.jpg Graphic file (type jpg)
  <use images/acta2.jpg>
 Package pdftex.def Info: images/acta2.jpg used on input line 829.
@@ -4296,10 +4298,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 830.
  ) 
 Here is how much of TeX's memory you used:
- 24345 strings out of 493013
- 426452 string characters out of 6139317
- 870867 words of memory out of 5000000
- 24671 multiletter control sequences out of 15000+600000
+ 24339 strings out of 493013
+ 426300 string characters out of 6139317
+ 873867 words of memory out of 5000000
+ 24663 multiletter control sequences out of 15000+600000
  11289 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,12n,72p,791b,2145s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -4310,10 +4312,10 @@ c/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on omaita.pdf (83 pages, 3378026 bytes).
+Output written on omaita.pdf (83 pages, 3378106 bytes).
 PDF statistics:
- 3861 PDF objects out of 4296 (max. 8388607)
- 3697 compressed objects within 37 object streams
- 2792 named destinations out of 2984 (max. 500000)
+ 3863 PDF objects out of 4296 (max. 8388607)
+ 3699 compressed objects within 37 object streams
+ 2794 named destinations out of 2984 (max. 500000)
  364 words of extra memory for PDF output out of 10000 (max. 10000000)
 
